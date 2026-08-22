@@ -1,5 +1,5 @@
 /* =========================================================
-   Game Codex — shared site logic
+   GameStoryHub — shared site logic
    Works off data/games.json (client-side only, no backend).
    Every page includes this file and sets:
      window.GC_ROOT = "./"   (pages at site root: index.html, browse.html)
