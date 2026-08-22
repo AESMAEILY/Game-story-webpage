@@ -87,6 +87,12 @@ Search/filter and the language switcher are already wired for `en` / `de` / `es`
 2. In the repo's Settings → Pages, set the source to that branch/folder.
 3. That's it — everything is static, no build step required at deploy time. Just remember to run `scripts/generate_pages.py` locally before you push whenever you've edited `data/games.json`.
 
+## License & copyright
+
+This site's design, code, and original written content (story summaries, copy, etc.) are Copyright (c) 2026 Alireza Esmaeily — All Rights Reserved. See [`LICENSE`](./LICENSE) for the full terms. The repository is hosted publicly on GitHub so GitHub Pages can serve it, but public visibility is not permission to reuse: no one may copy, redistribute, or build on this design/code without written permission from the copyright holder.
+
+Game titles, cover art, screenshots, trailer footage, and embedded YouTube videos remain the property of their respective publishers, developers, and creators — this project only references/embeds them for commentary and walkthrough purposes, and claims no ownership over that third-party material.
+
 ## Notes
 
 - No real box art is used anywhere by default — every tile/cover is procedurally generated (gradient mesh + genre-icon watermark + monogram badge) so the site ships with zero copyright exposure out of the box. See "Adding real cover art for a game" above if you want to opt specific titles into real images you have the rights to use.
