@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Browse Games — Game Codex</title>
+<meta name="description" content="Search and filter all 50 games in Game Codex by title, genre, or platform.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237c8cff'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' font-family='Arial' fill='%2306060a'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>:root { --accent: #7c8cff; --accent2: #3ee6c4; }</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-nav">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">⚡</span>
+    <span>Game Codex<small>Walkthroughs &amp; Lore</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html">Home</a>
+    <a href="browse.html" class="active">Browse</a>
+  </nav>
+  <div class="nav-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="search" id="nav-search-input" placeholder="Search games…" aria-label="Search games">
+    <div class="nav-search-results" id="nav-search-results"></div>
+  </div>
+</header>
+
+<main id="main">
+<section class="section" style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Browse the codex</h2>
+        <p>Live search across all 50 titles — filters apply instantly, no reload.</p>
+      </div>
+    </div>
+
+    <div class="browse-toolbar">
+      <div class="browse-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="browse-search-input" placeholder="Search by title, genre, developer…" aria-label="Search games" autocomplete="off">
+      </div>
+      <div class="select-wrap">
+        <select id="platform-select" aria-label="Filter by platform">
+          <option value="">All platforms</option>
+        </select>
+      </div>
+      <div class="select-wrap">
+        <select id="sort-select" aria-label="Sort games">
+          <option value="date-desc">Newest first</option>
+          <option value="date-asc">Oldest first</option>
+          <option value="az">Title A–Z</option>
+          <option value="za">Title Z–A</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-row" id="genre-filter-row"></div>
+    <p class="browse-count" id="result-count"></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="grid" id="browse-grid">
+      <div class="no-results">Loading games…</div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <span>Game Codex — a fan-made walkthrough &amp; lore hub. Videos embedded via YouTube; all game titles and art are property of their respective publishers.</span>
+    <span><a href="index.html">Back to home</a></span>
+  </div>
+</footer>
+
+<script>window.GC_ROOT = "./";</script>
+<script src="js/site.js"></script>
+<script>
+(function () {
+  var state = { q: "", genre: "", platform: "", sort: "date-desc" };
+  var params = new URLSearchParams(window.location.search);
+  if (params.get("q")) state.q = params.get("q");
+  if (params.get("genre")) state.genre = params.get("genre");
+
+  var searchInput = document.getElementById("browse-search-input");
+  var platformSelect = document.getElementById("platform-select");
+  var sortSelect = document.getElementById("sort-select");
+  var genreRow = document.getElementById("genre-filter-row");
+  var grid = document.getElementById("browse-grid");
+  var countEl = document.getElementById("result-count");
+
+  searchInput.value = state.q;
+
+  function applySortDate(a, b, dir) {
+    return dir === "date-desc" ? (a.releaseDate < b.releaseDate ? 1 : -1) : (a.releaseDate > b.releaseDate ? 1 : -1);
+  }
+
+  function render(games) {
+    var q = state.q.trim().toLowerCase();
+    var filtered = games.filter(function (g) {
+      var matchesQ = !q || g.title.toLowerCase().includes(q) ||
+        g.genres.some(function (x) { return x.toLowerCase().includes(q); }) ||
+        g.developer.toLowerCase().includes(q);
+      var matchesGenre = !state.genre || g.genres.includes(state.genre);
+      var matchesPlatform = !state.platform || g.platforms.includes(state.platform);
+      return matchesQ && matchesGenre && matchesPlatform;
+    });
+
+    filtered.sort(function (a, b) {
+      if (state.sort === "az") return a.title.localeCompare(b.title);
+      if (state.sort === "za") return b.title.localeCompare(a.title);
+      return applySortDate(a, b, state.sort);
+    });
+
+    countEl.textContent = filtered.length + (filtered.length === 1 ? " game" : " games") +
+      (state.q || state.genre || state.platform ? " matching your filters." : " in the codex.");
+    GameCodex.renderGrid(grid, filtered);
+  }
+
+  GameCodex.ready.then(function (games) {
+    // populate platform options
+    var platforms = Array.from(new Set(games.flatMap(function (g) { return g.platforms; }))).sort();
+    platforms.forEach(function (p) {
+      var opt = document.createElement("option");
+      opt.value = p; opt.textContent = p;
+      platformSelect.appendChild(opt);
+    });
+
+    // populate genre pills
+    var genres = Array.from(new Set(games.flatMap(function (g) { return g.genres; }))).sort();
+    function renderGenreRow() {
+      genreRow.innerHTML = ['<button class="filter-pill' + (state.genre === "" ? " active" : "") + '" data-genre="">All genres</button>']
+        .concat(genres.map(function (g) {
+          return '<button class="filter-pill' + (state.genre === g ? " active" : "") + '" data-genre="' + g + '">' + g + '</button>';
+        })).join("");
+      genreRow.querySelectorAll(".filter-pill").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          state.genre = btn.dataset.genre;
+          renderGenreRow();
+          render(games);
+        });
+      });
+    }
+    renderGenreRow();
+
+    render(games);
+
+    searchInput.addEventListener("input", function () { state.q = searchInput.value; render(games); });
+    platformSelect.addEventListener("change", function () { state.platform = platformSelect.value; render(games); });
+    sortSelect.addEventListener("change", function () { state.sort = sortSelect.value; render(games); });
+
+    GameCodex.wireSearchWidget(
+      document.getElementById("nav-search-input"),
+      document.getElementById("nav-search-results")
+    );
+  });
+})();
+</script>
+</body>
+</html>
