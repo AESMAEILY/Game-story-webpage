@@ -1,0 +1,1608 @@
+[
+  {
+    "slug": "hades-2",
+    "title": "Hades II",
+    "tagline": "Melinoë hunts Chronos through the Underworld and beyond.",
+    "releaseDate": "2025-09-25",
+    "genres": [
+      "Roguelike",
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "Switch"
+    ],
+    "developer": "Supergiant Games",
+    "publisher": "Supergiant Games",
+    "accent": "#ff7a45",
+    "accent2": "#b23c1f",
+    "youtube": {
+      "id": "q_ajc87CDs0",
+      "title": "HADES 2 Gameplay Walkthrough FULL GAME [4K 60FPS PC ULTRA] - No Commentary"
+    },
+    "lore": {
+      "en": "Centuries after the House of Hades fell to the Titan of Time, the witch-princess Melinoë trains in exile at a hidden crossroads, gathering allies from the old pantheon for one purpose: reaching Chronos and ending his rule before he unmakes the family she has left. Each attempt carries her from the Underworld's shifting caverns to the surface world above, deepening a war between gods, witches, and time itself.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/hades-2.jpg"
+  },
+  {
+    "slug": "hollow-knight-silksong",
+    "title": "Hollow Knight: Silksong",
+    "tagline": "Ascend the kingdom of Pharloom as Hornet.",
+    "releaseDate": "2025-09-04",
+    "genres": [
+      "Metroidvania"
+    ],
+    "platforms": [
+      "PC",
+      "Switch",
+      "Switch 2",
+      "PS4",
+      "PS5",
+      "Xbox One",
+      "Xbox Series X|S"
+    ],
+    "developer": "Team Cherry",
+    "publisher": "Team Cherry",
+    "accent": "#3ee6c4",
+    "accent2": "#0c8f7a",
+    "youtube": {
+      "id": "KTd_qTWnfyk",
+      "title": "Hollow Knight: Silksong - Full Game Walkthrough"
+    },
+    "lore": {
+      "en": "Captured and carried far from Hallownest, Hornet wakes in the haunted, silk-choked kingdom of Pharloom. Compelled by a mysterious summons ringing from its highest peak, she cuts her way upward through crumbling cathedrals, bogs, and bell-towns tangled in an ancient, decaying faith. Old gods, needle-cults, and a fractured royal line all have a claim on the kingdom's fate, and on the ringing bell that seems to be calling her by name.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/hollow-knight-silksong.jpg",
+    "storySections": [
+      {
+        "heading": "Capture and Arrival",
+        "text": "Hornet is ambushed by robed Choir cultists who bind her in silk and carry her across the sea to Pharloom, a ruined religious kingdom she has never seen. She breaks free of her captors and falls into the Moss Grotto at the foot of the kingdom's central peak, stripped of her cloak and needle. Realizing her abductors served a holy order based in a great Citadel far above, Hornet resolves to climb Pharloom's pilgrim road to its summit and confront whoever ordered her capture."
+      },
+      {
+        "heading": "The Pilgrimage Up Pharloom",
+        "text": "As Hornet ascends through Pharloom's decaying farmlands, bogs, and factories, she finds a once-great empire crumbling under 'the Haunting,' a spreading madness that reanimates the dead and turns the living violent. Along the way she recovers her tools and gathers allies and rivals alike, including a mysterious bell-ringer, a knowing snail shaman, and the lethal, cult-like Sisters of Battle stationed throughout the land. Rumors keep surfacing of a slumbering 'Mother' whose silk threads are somehow bound to every soul in the kingdom."
+      },
+      {
+        "heading": "The Weavers' Secret",
+        "text": "Hornet eventually uncovers Pharloom's founding myth: long ago, a Higher Being called Grand Mother Silk arrived and elevated ordinary spiders into a race called the Weavers, telling them they were her divine daughters. When the Weavers realized this was a lie, they used song to lull Grand Mother Silk into an eternal sleep and sealed her within a hidden sanctum called the Cradle. Generations later, the Citadel of Song was built atop her prison to keep her dormant, its people unaware they remained silently bound to her by the silk running through their own bodies."
+      },
+      {
+        "heading": "Lace and the Waking Mother",
+        "text": "Denied her original Weaver children, Grand Mother Silk spun a new one from pure silk: Lace, a fast and dangerous rival who crosses Hornet's path again and again, sometimes hunting her, sometimes helping her. As Hornet nears the Citadel's summit, the Mother's influence grows stronger and the Haunting spreads into open corruption across Pharloom, threatening to permanently bind every remaining bug's soul and shell to her will. Lace, resentful of the mother who made her only to be used, ultimately turns against her and helps free Hornet from captivity."
+      },
+      {
+        "heading": "The Confrontation in the Cradle",
+        "text": "At the climax, Hornet reaches the Cradle to face Grand Mother Silk, and the outcome depends on what she has accomplished along the way. In the simplest ending, Hornet defeats the Mother outright and takes her place, becoming a new Weaver Queen fused with silk and ruling the Citadel herself. By completing further quests and crafting a Soul Snare with the Citadel's Caretaker, she can instead trigger the game's true path: playing the Needolin drags Grand Mother Silk toward the Void, and Lace, finally rebelling against her creator, wounds the Mother and frees Hornet — only to be dragged into the abyss herself."
+      },
+      {
+        "heading": "Into the Void",
+        "text": "With Grand Mother Silk falling, Pharloom's Haunting-corrupted enemies are consumed by the Void and the kingdom edges toward collapse. Hornet dives into the Void itself to confront 'Lost Lace' — her ally now possessed by the same darkness that swallowed the Mother — and manages to purify her. In the fullest ending, the two escape together with unexpected help from the Knight, Hornet's silent sibling from the original Hollow Knight, closing out Silksong's story with Pharloom's ancient curse broken but its future left uncertain."
+      }
+    ],
+    "creators": [
+      {
+        "name": "IGN",
+        "youtubeId": "ABrZO-9_snQ",
+        "videoTitle": "Hollow Knight: Silksong Review"
+      },
+      {
+        "name": "GameSpot",
+        "youtubeId": "2ibksBGrvcs",
+        "videoTitle": "Hollow Knight: Silksong Review"
+      }
+    ]
+  },
+  {
+    "slug": "donkey-kong-bananza",
+    "title": "Donkey Kong Bananza",
+    "tagline": "Smash straight down through a world of layered terrain.",
+    "releaseDate": "2025-07-17",
+    "genres": [
+      "3D Platformer"
+    ],
+    "platforms": [
+      "Switch 2"
+    ],
+    "developer": "Nintendo EPD",
+    "publisher": "Nintendo",
+    "accent": "#4dd0ff",
+    "accent2": "#1a6fa6",
+    "youtube": {
+      "id": "2Y1FQBw9_9E",
+      "title": "Donkey Kong Bananza FULL COMPLETE 100% Game Walkthrough"
+    },
+    "lore": {
+      "en": "When a golden vein of Bananium sets off a chain of destruction, Donkey Kong smashes down through Earth's crust layer by layer, teaming up with the strange, tunnel-dwelling Pauline to chase it to the planet's core. Rival crews of banana-hungry rogues want the same prize, turning the descent into a running battle across wildly different sub-surface worlds.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/donkey-kong-bananza.jpg"
+  },
+  {
+    "slug": "death-stranding-2",
+    "title": "Death Stranding 2: On the Beach",
+    "tagline": "Sam Porter Bridges reconnects a shattered continent once more.",
+    "releaseDate": "2025-06-26",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS5"
+    ],
+    "developer": "Kojima Productions",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "aifSQ3Dklyc",
+      "title": "DEATH STRANDING 2: ON THE BEACH Full Walkthrough Part 1 (No Commentary) @1440p Ultra 60Fps"
+    },
+    "lore": {
+      "en": "Years after reconnecting America, Sam Porter Bridges is pulled out of quiet retirement for a new delivery network stretching across Mexico and beyond, as the mysterious organization Drawbridge pushes an agenda that puts him at odds with the peace he helped build. Otherworldly Beached Things, fractured nations, and old ghosts from the first Death Stranding all resurface as Sam carries the world's last threads of connection on his back.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/death-stranding-2.jpg"
+  },
+  {
+    "slug": "clair-obscur-expedition-33",
+    "title": "Clair Obscur: Expedition 33",
+    "tagline": "A doomed expedition marches against the Paintress's countdown.",
+    "releaseDate": "2025-04-24",
+    "genres": [
+      "Turn-Based RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series X|S"
+    ],
+    "developer": "Sandfall Interactive",
+    "publisher": "Sandfall Interactive",
+    "accent": "#ffb84d",
+    "accent2": "#a6631a",
+    "youtube": {
+      "id": "w5yb8AqU2Lw",
+      "title": "Clair Obscur: Expedition 33 – Full Walkthrough (No Commentary, 4K60FPS)"
+    },
+    "lore": {
+      "en": "Once a year, a godlike Paintress paints a number on her monolith, and everyone in the city of Lumière who has reached that age turns to ash and vanishes. Gustave and the sixty-seven other members of Expedition 33 set out from the last generation of survivors to cross the sea to her tower and end the painting for good, knowing full well that expeditions before them never returned.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/clair-obscur-expedition-33.jpg",
+    "storySections": [
+      {
+        "heading": "Lumière and the Gommage",
+        "text": "Sixty-seven years before the game begins, a cataclysm called the Fracture cut the city of Lumière off from the rest of the world. Ever since, a mysterious figure known as the Paintress has appeared each year to paint a number on a colossal Monolith, and every citizen whose age matches or exceeds that number instantly vanishes in an event called the Gommage. The number falls by one every year, so the city is dying by inches. In response, Lumière sends an armed 'Expedition' against the Paintress annually, hoping to kill her and end the cycle; every prior expedition has failed. Expedition 33, the newest, sets out on Gommage day itself."
+      },
+      {
+        "heading": "Expedition 33 and the Hunter",
+        "text": "Engineer Gustave, with only a year left before he is 'gommaged,' joins the expedition after parting with his ex, Sophie. Most of the party is slaughtered by Renoir, an ageless, armored hunter who stalks the group across the Continent. Gustave survives alongside the mage Lune, the widowed teacher Sciel, and the young, headstrong Maelle, who has been having visions of a masked girl. Aided by the shapeshifting creature Esquie, the survivors press toward the Monolith. Renoir strikes again and mortally wounds Gustave shielding Maelle, but a stranger named Verso intervenes and saves the others. Verso reveals he survived an earlier expedition, that Renoir is his father, and that the masked girl in Maelle's visions is his own sister, Alicia — and that he and Renoir were both granted immortality by the Paintress herself."
+      },
+      {
+        "heading": "Hunting the Axons",
+        "text": "After Renoir teleports away his own mansion to keep the party from reaching the being he calls the Curator — the Paintress's 'heart' — Lune proposes forging a weapon capable of killing the Paintress by harvesting power from towering god-like entities called Axons. Joined by the Gestral warrior Monoco, the expedition tears down the Paintress's magical barrier and finally confronts her at the Monolith, killing both her and Renoir in the ensuing battle. They return to Lumière as saviors."
+      },
+      {
+        "heading": "The Curator's Deception",
+        "text": "Only Verso knows the truth: the Curator, not the Paintress, was the actual architect of the Gommage — the Paintress had been holding him back all along. With her gone, the Curator turns on Lumière without restraint, wiping out its population in an instant and sparing only Verso."
+      },
+      {
+        "heading": "The Dessendre Family",
+        "text": "The story flashes back to early-twentieth-century Paris, where a family of gifted painters — parents Aline and Renoir Dessendre, their children Verso, Clea, and Alicia — could conjure entire living worlds inside their canvases. Lumière itself exists inside a painting made by the son, Verso Dessendre. When a rival faction burned the family's mansion, killing Verso and disfiguring Alicia, a grief-stricken Aline retreated permanently into her dead son's painting, remaking it in her family's image and becoming the Paintress. Renoir tried to drag her back to reality, and their struggle tore open the Fracture. Their remaining son, Clea, created the monstrous Nevrons to help Renoir hunt her down. When Alicia later entered the canvas herself, Aline's overwhelming power shattered her mind and she was reborn without memory — as Maelle."
+      },
+      {
+        "heading": "Two Endings",
+        "text": "After apparently dying, Maelle recovers her memories as Alicia Dessendre and revives, learning that Verso manipulated the expedition into expelling Aline from the canvas world. She confronts the Curator, revealed as her real father Renoir Dessendre, hoping he'll restore everyone he erased — but seeing that she still clings to the identity of Maelle rather than Alicia, he instead resolves to erase the canvas altogether. Maelle fights back, reviving her allies, and the ensuing battle brings Aline back into the canvas and drives Renoir into retreat. Realizing Maelle intends to stay inside the painted world forever, just as Aline once did, Verso seeks out the last lingering fragment of his own dead soul that still sustains the canvas — and the game branches into two possible endings. In the 'Maelle' ending, the canvas survives; she rebuilds Lumière and revives its people, including Gustave and Sophie, but also resurrects Verso against his wishes, and her own health begins failing from lingering too long inside the painting. In the 'Verso' ending, Verso banishes Maelle from the canvas and convinces his own soul-remnant to let the painting go, erasing the world along with himself and the surviving expedition members — while in the real world, the grieving Dessendre family finally reconciles over Verso's death."
+      }
+    ],
+    "creators": [
+      {
+        "name": "Skill Up",
+        "youtubeId": "mXLOLgC2V2Q",
+        "videoTitle": "The impossible (true) stories behind the making of Clair Obscur Expedition 33"
+      },
+      {
+        "name": "IGN",
+        "youtubeId": "KvJv-Rlx4bI",
+        "videoTitle": "Clair Obscur: Expedition 33 Review"
+      }
+    ]
+  },
+  {
+    "slug": "split-fiction",
+    "title": "Split Fiction",
+    "tagline": "Two rival writers get trapped inside their own stories.",
+    "releaseDate": "2025-03-06",
+    "genres": [
+      "Co-op Action Adventure"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series X|S"
+    ],
+    "developer": "Hazelight Studios",
+    "publisher": "Electronic Arts",
+    "accent": "#4dd0ff",
+    "accent2": "#1a6fa6",
+    "youtube": {
+      "id": "wZuSX6lMORk",
+      "title": "SPLIT FICTION Gameplay Walkthrough FULL GAME 100% [4K 60FPS] - No Commentary"
+    },
+    "lore": {
+      "en": "Sci-fi author Mio and fantasy author Zoe sign on with a publisher whose machine promises to bring their stories to life, only to end up fused together and trapped inside a glitching simulation built from both their imaginations. Forced to cooperate, the pair fight, fly, and freefall through wildly different genres, each level bouncing between Zoe's dragons and Mio's neon dystopias as they search for a way back out.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/split-fiction.jpg"
+  },
+  {
+    "slug": "monster-hunter-wilds",
+    "title": "Monster Hunter Wilds",
+    "tagline": "Track colossal beasts across the shifting Forbidden Lands.",
+    "releaseDate": "2025-02-28",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series X|S"
+    ],
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "dwRYF9o-xTE",
+      "title": "MONSTER HUNTER WILDS Gameplay Walkthrough FULL GAME (4K 60FPS) No Commentary"
+    },
+    "lore": {
+      "en": "A lone, wounded boy found wandering the desert leads the Hunters Guild's research commission into the Forbidden Lands, a region whose seasons shift the entire ecosystem beneath hunters' feet. As the commission tracks the boy's origins, ancient and unclassified monsters begin surfacing, hinting that the Forbidden Lands hide something the Guild has never catalogued before.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/monster-hunter-wilds.jpg"
+  },
+  {
+    "slug": "metaphor-refantazio",
+    "title": "Metaphor: ReFantazio",
+    "tagline": "An outcast prince's rise, decided by a kingdom-wide election.",
+    "releaseDate": "2024-10-11",
+    "genres": [
+      "JRPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox Series X|S"
+    ],
+    "developer": "Studio Zero (Atlus)",
+    "publisher": "Sega",
+    "accent": "#ff5fa8",
+    "accent2": "#9e2a6b",
+    "youtube": {
+      "id": "BV7DL2xlRDM",
+      "title": "METAPHOR REFANTAZIO Gameplay Walkthrough FULL GAME (HD) No Commentary 100%"
+    },
+    "lore": {
+      "en": "In the fantasy kingdom of Euchronia, the assassinated king's dying decree throws the throne open to whoever the people elect, and a despised, otherized protagonist enters the race guided only by a strange book and the will-turned-monster Archetypes it grants him. Racing against rival candidates and a countdown to save a cursed friend, he travels a continent built on prejudice and myth, testing whether imagination can actually reshape a society.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "astro-bot",
+    "title": "Astro Bot",
+    "tagline": "Rebuild the shattered PS5 mothership, one galaxy at a time.",
+    "releaseDate": "2024-09-06",
+    "genres": [
+      "3D Platformer"
+    ],
+    "platforms": [
+      "PS5"
+    ],
+    "developer": "Team Asobi",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#4dd0ff",
+    "accent2": "#1a6fa6",
+    "youtube": {
+      "id": "gUl8FdkBgpg",
+      "title": "ASTRO BOT - Full Game 100% Walkthrough"
+    },
+    "lore": {
+      "en": "When space pirates blast the PlayStation mothership apart and scatter its crew of bots across the galaxy, Astro sets off alone to recover them, planet by whimsical planet. Each world doubles as a playable tribute to PlayStation's own history, turning the rescue mission into a victory-lap tour of decades of games.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/astro-bot.jpg"
+  },
+  {
+    "slug": "black-myth-wukong",
+    "title": "Black Myth: Wukong",
+    "tagline": "A nameless monk retraces the legend of the Monkey King.",
+    "releaseDate": "2024-08-20",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series X|S"
+    ],
+    "developer": "Game Science",
+    "publisher": "Game Science",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "T4DFKOlrXCQ",
+      "title": "BLACK MYTH WUKONG Gameplay Walkthrough FULL GAME [4K 60FPS] - No Commentary"
+    },
+    "lore": {
+      "en": "Long after the Monkey King renounced his title and vanished, a nameless wandering monk called the Destined One sets out across a fractured mythic China to recover the six relics of his shattered power. Drawing directly from the classic Journey to the West, the road puts him against the same demons, gods, and old grudges that once tested the legend himself.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/black-myth-wukong.jpg"
+  },
+  {
+    "slug": "final-fantasy-7-rebirth",
+    "title": "Final Fantasy VII Rebirth",
+    "tagline": "Cloud and AVALANCHE chase Sephiroth beyond Midgar.",
+    "releaseDate": "2024-02-29",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PS5",
+      "PC"
+    ],
+    "developer": "Square Enix",
+    "publisher": "Square Enix",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "Il2YOK4_luc",
+      "title": "FINAL FANTASY 7: REBIRTH Full Walkthrough Gameplay – PS5 Pro 4K 60FPS No Commentary"
+    },
+    "lore": {
+      "en": "Having escaped the fallen plate city of Midgar, Cloud and the remnants of AVALANCHE follow Sephiroth's trail across an open continent of ruins, resorts, and Shinra-scarred wilderness, with the fate of the planet's lifestream hanging on what they find. Old memories keep surfacing to blur what Cloud actually remembers of his past with Sephiroth and Zack, and Aerith's visions of the future grow harder for the party to ignore.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "spider-man-2",
+    "title": "Marvel's Spider-Man 2",
+    "tagline": "Peter and Miles share the mantle against Kraven and Venom.",
+    "releaseDate": "2023-10-20",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS5"
+    ],
+    "developer": "Insomniac Games",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "RWXMAb9APh8",
+      "title": "Marvel's Spider-Man 2 Gameplay Walkthrough FULL GAME - No Commentary"
+    },
+    "lore": {
+      "en": "With Peter Parker and Miles Morales both swinging as Spider-Man, New York faces the arrival of Kraven the Hunter, whose global manhunt for the ultimate prey collides with a symbiote that binds itself to Peter and begins twisting him toward the person he's trying not to become. Balancing a shared identity, a spreading black suit, and Harry Osborn's uncertain recovery pushes both Spider-Men toward very different breaking points.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "counter-strike-2",
+    "title": "Counter-Strike 2",
+    "tagline": "Counter-Terrorists and Terrorists clash over bomb sites, round after round.",
+    "releaseDate": "2023-09-27",
+    "genres": [
+      "Tactical Shooter"
+    ],
+    "platforms": [
+      "PC"
+    ],
+    "developer": "Valve",
+    "publisher": "Valve",
+    "accent": "#ffd23f",
+    "accent2": "#8a6a12",
+    "youtube": {
+      "id": "2ssBLr8i52E",
+      "title": "The ULTIMATE CS2 Beginner Guide (2026)"
+    },
+    "lore": {
+      "en": "Rebuilt on Valve's Source 2 engine, Counter-Strike 2 carries forward the series' long-running, story-light standoff between a Counter-Terrorist unit and a Terrorist faction fighting over hostages and bomb sites on maps drawn from two decades of competitive play. There's no campaign to speak of: the drama is generated round by round, economy by economy, by whoever's on the server with you.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/counter-strike-2.jpg"
+  },
+  {
+    "slug": "baldurs-gate-3",
+    "title": "Baldur's Gate 3",
+    "tagline": "Escape a mind flayer ship, and the parasite it left behind.",
+    "releaseDate": "2023-08-03",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "Xbox Series X|S",
+      "macOS"
+    ],
+    "developer": "Larian Studios",
+    "publisher": "Larian Studios",
+    "accent": "#7c8cff",
+    "accent2": "#3a3f9e",
+    "youtube": {
+      "id": "UCxFhfQFaec",
+      "title": "BALDUR'S GATE 3 Gameplay Walkthrough FULL GAME (4K 60FPS) No Commentary"
+    },
+    "lore": {
+      "en": "Infected with a mind flayer tadpole during an illithid ship's crash over the Sword Coast, a small band of the infected banded together to find a cure before the parasite transforms them, or before it grants them power they can't safely refuse. Their search drags them into a cult's plot to unleash an ancient elder brain beneath Baldur's Gate, with companions, gods, and old betrayals shaping which ending the city gets.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/baldurs-gate-3.jpg",
+    "storySections": [
+      {
+        "heading": "The Nautiloid Crash",
+        "text": "The story begins as the player character awakens aboard a mind flayer nautiloid, infected with a psychic tadpole that will eventually transform them into an illithid. Before the mutation can complete, githyanki warriors led by Lae'zel storm the ship, and it is dragged into the Nine Hells and assaulted by devils. Amid the chaos, the protagonist seizes the helm, crash-lands the ship on the Sword Coast, and finds fellow survivors — Shadowheart, Astarion, Gale, and Wyll — who are infected with the same parasite and now bound by a shared need to find a cure before they turn into monsters."
+      },
+      {
+        "heading": "Act 1 — The Emerald Grove and the Absolute",
+        "text": "Fleeing the wreckage, the party discovers a mysterious Dream Visitor who appears in their minds — later revealed to be the Emperor, a renegade mind flayer who grants them psychic resistance in exchange for their trust. Their search for a cure leads them to the Emerald Grove, where tiefling refugees and druids are besieged by goblins serving a fanatical cult devoted to a godlike entity called the Absolute. The party can side with the grove's defenders or the goblin raiders, and their choices ripple outward as they explore ruins, the Underdark, and a haunted Gauntlet before pushing toward the cult's stronghold."
+      },
+      {
+        "heading": "Act 2 — The Shadow-Cursed Lands and Moonrise Towers",
+        "text": "The party crosses into the Shadow-Cursed Lands, a region blighted by perpetual darkness, and infiltrates Moonrise Towers, the Absolute cult's fortress. There they learn the cult is led by three 'Chosen' — Ketheric Thorm, a general who cannot truly die; his ally Orin the Red, a shapeshifting assassin of the Cult of Bhaal; and Enver Gortash, a schemer maneuvering to seize control of Baldur's Gate. The party uncovers that Ketheric's immortality is tied to Nightsong (Aylin, a fallen aasimar bound in the temple of Shar) and that the Absolute itself is an ancient, captive Elder Brain the trio is using to raise an army of mind-controlled thralls."
+      },
+      {
+        "heading": "Act 3 — Baldur's Gate and the Three Chosen",
+        "text": "The party reaches the city of Baldur's Gate, where Gortash has orchestrated his own coronation as Grand Duke while secretly controlling an army of golems, and Orin stalks the streets murdering and impersonating nobles for Bhaal. The companions must root out both threats while navigating the city's guilds, the Steel Watch uprising, and revelations about their own pasts — including the truth that the Emperor once imprisoned a githyanki prince, Orpheus, whose stolen power is the true source of the party's resistance to the parasites."
+      },
+      {
+        "heading": "The Elder Brain and the Netherstones",
+        "text": "With Gortash and Orin defeated, the party descends beneath the city to confront Ketheric and the Elder Brain directly. The Elder Brain, having anticipated the party's interference, seizes control of the fight until the Emperor intervenes to save them. The party must then decide whether to free Orpheus and let him take the Emperor's place, allow the Emperor to permanently consume Orpheus's power, or reject both — a choice that determines whether any companions can safely transform into mind flayers to wield the powerful Netherstones in the final battle."
+      },
+      {
+        "heading": "The Final Battle and Multiple Endings",
+        "text": "In the climax, the party assaults the Elder Brain and its Netherbrain formation to stop it from psychically dominating the Sword Coast. Baldur's Gate 3 famously supports many different endings shaped by the player's choices throughout the game: the protagonist can destroy the Elder Brain and free the city, seize its power to become a new Absolute and rule as a tyrant, or even side with the villains earlier in the story to reach darker outcomes entirely. Companion fates, romances, and epilogue slides vary enormously by playthrough, and the game deliberately withholds a single 'true' ending in favor of consequences tailored to the choices each player made."
+      }
+    ],
+    "creators": [
+      {
+        "name": "IGN",
+        "youtubeId": "dIynuCeLOoc",
+        "videoTitle": "Baldur's Gate 3 Review"
+      },
+      {
+        "name": "MajorSlackAttack",
+        "youtubeId": "KAVPOAwrHmE",
+        "videoTitle": "Baldur's Gate 3 (BG3) Walkthrough Part 1: Beginner's Guide - Tactical Gameplay with Commentary"
+      }
+    ]
+  },
+  {
+    "slug": "diablo-4",
+    "title": "Diablo IV",
+    "tagline": "Lilith returns to Sanctuary to reclaim what she made.",
+    "releaseDate": "2023-06-06",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox Series X|S",
+      "Xbox One"
+    ],
+    "developer": "Blizzard Entertainment",
+    "publisher": "Blizzard Entertainment",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "1KFp_2ME1XE",
+      "title": "DIABLO 4 Full Gameplay Walkthrough / No Commentary 【FULL GAME】4K 60FPS Ultra HD"
+    },
+    "lore": {
+      "en": "Decades of famine and unrest have left Sanctuary vulnerable when Lilith, the demonic co-creator of humanity, tears her way back into the world through a blood-soaked cult ritual. A wandering Wanderer, marked since birth, is drawn into the fight to stop her from remaking Sanctuary as her own dominion, with the fractured Horadrim order caught in the middle.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/diablo-4.jpg"
+  },
+  {
+    "slug": "zelda-tears-of-the-kingdom",
+    "title": "The Legend of Zelda: Tears of the Kingdom",
+    "tagline": "Link rebuilds a fallen kingdom from the sky down.",
+    "releaseDate": "2023-05-12",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "Switch"
+    ],
+    "developer": "Nintendo EPD",
+    "publisher": "Nintendo",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "rye3wVDyI5g",
+      "title": "ZELDA TEARS OF THE KINGDOM Gameplay Walkthrough FULL GAME (4K ULTRA HD) No Commentary"
+    },
+    "lore": {
+      "en": "A corrupted secret beneath Hyrule Castle awakens an ancient evil and flings Link into the sky islands above, stripping Zelda from his side and scattering the kingdom's history across ruins on the surface, sky, and a newly opened Depths below. Piecing together dragon tears of memory, Link has to rebuild Hyrule's shattered alliances before Ganondorf's return finishes what the corruption started.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/zelda-tears-of-the-kingdom.jpg",
+    "storySections": [
+      {
+        "heading": "The Upheaval Beneath Hyrule Castle",
+        "text": "Years after the Calamity's defeat, Link and Princess Zelda descend into a gloom-filled cavern beneath Hyrule Castle, following Purah's research into a mysterious illness spreading across the land. There they find ancient murals depicting Hyrule's founding and a forgotten conflict called the Imprisoning War, fought against a figure known only as the Demon King. Investigating further, they disturb a withered, mummified corpse chained in the depths, which stirs to life and violently attacks them. The battle shatters the Master Sword and corrupts Link's right arm with gloom, and the ground gives way entirely, sending Hyrule Castle rocketing into the sky while Zelda plummets into the chasm below, disappearing with a strange glowing stone in hand."
+      },
+      {
+        "heading": "A New Arm and a Fractured Kingdom",
+        "text": "A disembodied, glowing arm catches Link as he falls and carries him to the Great Sky Island, where he awakens with his ruined arm replaced by this mysterious Zonai limb. He meets the spirit of Rauru, an ancient Zonai king who explains that the arm grants powerful new abilities: Ultrahand, Fuse, Ascend, and Recall. Descending back to Hyrule, Link finds the kingdom in chaos: sky islands have appeared overhead, deep chasms leading to a subterranean realm called the Depths have opened across the surface, and monsters empowered by gloom roam freely while Zelda remains missing."
+      },
+      {
+        "heading": "The Regional Sages and the Secret Stones",
+        "text": "Link reunites with old allies turned regional leaders — Sidon of the Zora, Tulin of the Rito, Yunobo of the Gorons, and Riju of the Gerudo — each contending with gloom-corrupted disasters threatening their homelands, orchestrated by shadowy agents of Ganondorf. By clearing ancient Zonai temples and defeating powerful bosses, Link helps each ally awaken a secret stone and the spirit of an ancient sage bound to it, granting them sage powers and cementing them as Zelda's chosen champions in the fight to come, alongside the mechanical construct Mineru, a fifth sage recovered from the Depths."
+      },
+      {
+        "heading": "Zelda's Journey to the Past",
+        "text": "Piecing together visions called 'dragon's tears,' Link learns the devastating truth: the Zelda he occasionally glimpses at Hyrule Castle is a phantom illusion conjured by Ganondorf's servant. The real Zelda fell through time via her secret stone into Hyrule's founding era, meeting King Rauru and Queen Sonia, and Ganondorf himself, then the ambitious Gerudo King who cloaked his true nature. After Ganondorf murdered Sonia and rebelled, Rauru and the original sages sealed him beneath the castle in the Imprisoning War, but the seal's inevitable failure led Zelda to a desperate act: she transformed herself into the eternal Light Dragon, sacrificing her humanity to keep the reforged Master Sword bathed in restorative light for the ten millennia until Link could wield it again."
+      },
+      {
+        "heading": "The Demon King's Return",
+        "text": "The mummified figure Link and Zelda disturbed was Ganondorf himself, freed from his ancient seal and now hunting the secret stones to seize Zonai power and reshape Hyrule as his own. With the Master Sword restored and his allied sages at his side, Link infiltrates the Depths and battles his way to Ganondorf beneath Hyrule Castle, ultimately facing him amid the ruins of the flying fortress in the sky."
+      },
+      {
+        "heading": "Demon Dragon and the True Ending",
+        "text": "As Link overwhelms him, Ganondorf swallows his own secret stone in a last desperate gambit, transforming into the monstrous, world-threatening Demon Dragon. The Light Dragon — Zelda in her transformed state — arrives to aid Link, letting him ride her and strike the corrupted stone directly, destroying Ganondorf for good and ending the threat. With Ganondorf's malice purged, Rauru and Sonia's lingering spirits use their remaining power to restore Zelda to human form and heal Link's arm before finally passing on. Link and Zelda reunite on the surface with their allies, Mineru bids the pair farewell, and the newly empowered regional sages vow to safeguard their lands, leaving Hyrule battered but at peace as the kingdom begins to rebuild."
+      }
+    ],
+    "creators": [
+      {
+        "name": "Zeltik",
+        "youtubeId": "hZytp1sIZAw",
+        "videoTitle": "Zelda: Tears of the Kingdom - Story Explained (Part 1/3)"
+      },
+      {
+        "name": "GamingBolt",
+        "youtubeId": "D3UDC0Xxh7Q",
+        "videoTitle": "The Legend of Zelda: Tears of the Kingdom Ending Explained And How It Sets Up the Sequel"
+      }
+    ]
+  },
+  {
+    "slug": "resident-evil-4-remake",
+    "title": "Resident Evil 4",
+    "tagline": "Leon Kennedy walks into a village that isn't right.",
+    "releaseDate": "2023-03-24",
+    "genres": [
+      "Survival Horror"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox Series X|S"
+    ],
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "accent": "#ff3b3b",
+    "accent2": "#7a1414",
+    "youtube": {
+      "id": "KMadSaqc338",
+      "title": "RESIDENT EVIL 4 REMAKE Gameplay Walkthrough FULL GAME (8K 60FPS RTX) No Commentary"
+    },
+    "lore": {
+      "en": "Six years after Raccoon City, government agent Leon Kennedy tracks the president's kidnapped daughter to a remote Spanish village whose residents have been turned into cult-controlled, parasite-driven killers. What starts as a rescue mission unravels into a conspiracy involving the shadowy organization Los Iluminados and a parasite designed to control minds on a global scale.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/resident-evil-4-remake.jpg"
+  },
+  {
+    "slug": "god-of-war-ragnarok",
+    "title": "God of War Ragnarök",
+    "tagline": "Kratos and Atreus can't outrun the coming Ragnarök.",
+    "releaseDate": "2022-11-09",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS5",
+      "PS4"
+    ],
+    "developer": "Santa Monica Studio",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "ixllGOX0Evw",
+      "title": "GOD OF WAR RAGNAROK Gameplay Walkthrough FULL GAME PS5 4K 60FPS No Commentary"
+    },
+    "lore": {
+      "en": "With Fimbulwinter dragging into its third year and Odin hunting them across the Nine Realms, Kratos tries to keep his son Atreus from a prophesied fate while Atreus grows increasingly determined to face it head-on. Old family, new alliances among the realms' desperate survivors, and the inevitability of Ragnarök force father and son to finally decide what kind of gods, if any, they want to become.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    },
+    "poster": "assets/posters/god-of-war-ragnarok.jpg",
+    "storySections": [
+      {
+        "heading": "Fimbulwinter's End",
+        "text": "Three years after killing Baldur, Kratos and Atreus are hiding in Midgard as the endless winter of Fimbulwinter grinds on, hunted by Asgardian forces. Their aging wolf companion Fenrir dies, and the grief pushes Atreus toward reckless obsession with finding the giant Tyr, believing he holds answers about stopping Ragnarök. Odin himself appears with Thor at their door, offering an uneasy truce if Kratos abandons the search — Kratos refuses, setting father and son on a collision course with Asgard."
+      },
+      {
+        "heading": "Searching for Tyr and Angrboda",
+        "text": "Kratos and Atreus track the imprisoned god of war Tyr to Svartalfheim and free him from Odin's dungeon, though Tyr turns out to be a broken pacifist rather than the warrior of legend. In Alfheim they learn a grim truth: only Asgard is truly fated to fall in Ragnarök, while the other realms could survive under new leadership — implying Atreus, in his identity as Loki, is meant to be that new champion. Atreus secretly travels to Jötunheim, where he meets the giant Angrboda and uncovers a mural that seems to foretell Kratos's death during Ragnarök."
+      },
+      {
+        "heading": "Freya's Reckoning",
+        "text": "Still estranged since Kratos killed her son Baldur, Freya works against the pair for much of the journey. A confrontation forces Kratos to finally open up about his violent past, and the two begin to reconcile as Kratos helps break the magical binding Odin placed on her. Meanwhile Atreus, terrified of the prophecy, flees to Asgard alone to try to change fate — only for the Norns to reveal a new, darker destiny: that Heimdall is fated to kill him."
+      },
+      {
+        "heading": "The Draupnir Spear and Brok's Death",
+        "text": "Racing to save Atreus, Kratos has the dwarf Brok forge the magical Draupnir Spear, the only weapon capable of harming the seemingly invulnerable Heimdall. Atreus frees the imprisoned wolf Garm and resurrects Fenrir before reuniting with Kratos, who kills Heimdall in battle. In the aftermath, Odin — disguised as Tyr — murders Brok in cold blood, devastating his brother Sindri and hardening the group's resolve to end Odin once and for all by sounding Gjallarhorn and igniting Ragnarök."
+      },
+      {
+        "heading": "The Fall of Asgard",
+        "text": "Armies from across the Nine Realms unite and lay siege to Asgard as Jörmungandr the World Serpent battles Thor in the skies above. Kratos nearly talks Thor down from the fight, appealing to his exhaustion with Odin's abuse and manipulation, but Odin murders his own son in a fit of rage rather than let him defect. Kratos, Atreus, and Freya then corner and kill Odin together, and the fire giant Surtr — freed as prophecy demands — burns Asgard to the ground, fulfilling Ragnarök at last."
+      },
+      {
+        "heading": "New Fates",
+        "text": "In the aftermath, Atreus finds a hidden mural left by his late mother Faye showing that the future isn't fixed — that people can choose their own path — and sets out from Midgard to find the last surviving giants and Angrboda. Kratos discovers murals depicting himself not as a monster but as a beloved god of hope, peace, and justice, finally letting go of some of his self-hatred as the realms settle into a fragile peace under new leadership. The free Valhalla epilogue, added in 2023, follows Kratos alone afterward as he descends into a mystical realm to confront illusions of his past — old enemies and his younger, rage-filled self — ultimately accepting the good he did with the hope he once sacrificed himself to spread, and embracing his new role as a Norse god of war devoted to hope rather than vengeance."
+      }
+    ],
+    "creators": [
+      {
+        "name": "Wizzo",
+        "youtubeId": "4OqshmJqZxg",
+        "videoTitle": "God of War Ragnarok Story EXPLAINED! (GOW Ragnarok Full Story Breakdown & Lore)"
+      },
+      {
+        "name": "The Commissioner of Games",
+        "youtubeId": "3VYzN-c_9q0",
+        "videoTitle": "God of War Ragnarok Story Explained"
+      }
+    ]
+  },
+  {
+    "slug": "elden-ring",
+    "title": "Elden Ring",
+    "tagline": "A Tarnished returns to claim the shattered Elden Ring.",
+    "releaseDate": "2022-02-25",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox Series X|S",
+      "Xbox One"
+    ],
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "WVF4GccrX6E",
+      "title": "ELDEN RING Full Game Walkthrough - No Commentary (4K 60 FPS)"
+    },
+    "lore": {
+      "en": "The Elden Ring has been shattered and its Great Runes scattered among demigods whose feuding has left the Lands Between in ruin, guided by no clear order since. Exiled long ago and stripped of grace, a Tarnished answers a summons back across the Lands Between to gather the shards, challenge the demigods, and become Elden Lord in whatever way the fractured order allows.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "horizon-forbidden-west",
+    "title": "Horizon Forbidden West",
+    "tagline": "Aloy chases a dying world's last hope westward.",
+    "releaseDate": "2022-02-18",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PS5",
+      "PS4",
+      "PC"
+    ],
+    "developer": "Guerrilla Games",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "-xixDMXq1xU",
+      "title": "Horizon Forbidden West: Complete Edition Full Walkthrough Part 1 (No Commentary) @1440p Ultra 60Fps"
+    },
+    "lore": {
+      "en": "With a mysterious blight killing the last plant life keeping Earth's ecosystem alive, Aloy pushes further west into unmapped tribal lands to find the source and, if she can, a functioning copy of the old terraforming system GAIA. New tribes, rebuilt Old Earth technology, and machines more dangerous than anything she's fought complicate a mission that's really a race against total ecological collapse.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "it-takes-two",
+    "title": "It Takes Two",
+    "tagline": "A splitting couple gets turned into dolls and forced to cooperate.",
+    "releaseDate": "2021-03-26",
+    "genres": [
+      "Co-op Platformer"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "Hazelight Studios",
+    "publisher": "Electronic Arts",
+    "accent": "#4dd0ff",
+    "accent2": "#1a6fa6",
+    "youtube": {
+      "id": "iBKPF4Yd6jE",
+      "title": "It Takes Two – Full Game Walkthrough (No Commentary | 2K 60FPS Co-Op)"
+    },
+    "lore": {
+      "en": "On the night Cody and May decide to divorce, their daughter's tearful wish and a book of home-brewed relationship magic turns both parents into living dolls. Guided by an obnoxiously chipper self-help book named Dr. Hakim, the pair have to work together through a backyard turned battlefield of oversized tools and toys to find a way back to their own bodies, and figure out what's actually worth saving.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "cyberpunk-2077",
+    "title": "Cyberpunk 2077",
+    "tagline": "V chases immortality with a dead legend's ghost in their head.",
+    "releaseDate": "2020-12-10",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "wrXNbZ19fPE",
+      "title": "Cyberpunk 2077 Full Gameplay Walkthrough - No Commentary"
+    },
+    "lore": {
+      "en": "A botched heist in Night City leaves mercenary V implanted with an experimental biochip carrying the digitized ghost of Johnny Silverhand, a rockerboy terrorist dead for fifty years and slowly overwriting V's own mind. Racing corporate fixers, gangs, and their own deteriorating body, V and Johnny have to find a way to separate before there's only room left for one of them.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "assassins-creed-valhalla",
+    "title": "Assassin's Creed Valhalla",
+    "tagline": "Eivor carves out a new home in Viking-age England.",
+    "releaseDate": "2020-11-10",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS4",
+      "PS5",
+      "Xbox"
+    ],
+    "developer": "Ubisoft Montreal",
+    "publisher": "Ubisoft",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "epB2bzGn90k",
+      "title": "ASSASSIN'S CREED VALHALLA Gameplay Walkthrough FULL GAME [PS5 4K 60FPS] - No Commentary"
+    },
+    "lore": {
+      "en": "Fleeing a homeland torn by clan warfare, Viking raider Eivor leads their clan across the sea to settle in England, forging alliances and rivalries with Saxon kings and rival Norse settlers alike. Beneath the raids and politics, an ancient conflict between the Hidden Ones and the Order of the Ancients resurfaces, pulling Eivor into a war that predates the Vikings by centuries.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "hades",
+    "title": "Hades",
+    "tagline": "Zagreus fights his way out of the Underworld, again and again.",
+    "releaseDate": "2020-09-17",
+    "genres": [
+      "Roguelike"
+    ],
+    "platforms": [
+      "PC",
+      "Switch",
+      "PS4",
+      "PS5",
+      "Xbox"
+    ],
+    "developer": "Supergiant Games",
+    "publisher": "Supergiant Games",
+    "accent": "#ff7a45",
+    "accent2": "#b23c1f",
+    "youtube": {
+      "id": "2cTCKCD0o4Y",
+      "title": "HADES Full Walkthrough Gameplay – Xbox Series X 4K/60FPS No Commentary"
+    },
+    "lore": {
+      "en": "Determined to escape his father's kingdom and find his missing mother, Zagreus, prince of the Underworld, hurls himself repeatedly at the halls of Hell, armed with weapons and blessings from the Olympians watching from above. Every failed run peels back another layer of Greek myth and family dysfunction, turning death itself into the game's core storytelling device.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "ghost-of-tsushima",
+    "title": "Ghost of Tsushima",
+    "tagline": "A samurai abandons honor to save his island from the Mongols.",
+    "releaseDate": "2020-07-17",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS4",
+      "PS5",
+      "PC"
+    ],
+    "developer": "Sucker Punch Productions",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "7aTPqvOquiU",
+      "title": "GHOST OF TSUSHIMA Gameplay Walkthrough FULL GAME (4K 60FPS) No Commentary"
+    },
+    "lore": {
+      "en": "In 1274, the Mongol Empire's first invasion of Japan crushes the samurai defending Tsushima Island, leaving Jin Sakai the last of his clan standing. To have any chance of driving the invaders out, Jin abandons the samurai code that raised him for the stealth and subterfuge of the Ghost, a choice that costs him standing with his own people even as it wins him the war.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "the-last-of-us-part-2",
+    "title": "The Last of Us Part II",
+    "tagline": "Ellie's search for vengeance spirals across a ruined Seattle.",
+    "releaseDate": "2020-06-19",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS4",
+      "PS5"
+    ],
+    "developer": "Naughty Dog",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "x7dZRIhnsWc",
+      "title": "The Last of Us Part 2 Gameplay Walkthrough FULL GAME (No Commentary)"
+    },
+    "lore": {
+      "en": "Years after Joel's choice in Salt Lake City, a brutal act of violence in Jackson sends Ellie out on a vengeance-driven trek to Seattle, where a militia and a religious cult are already tearing each other apart amid the infected. The story splits its lens between hunter and hunted, forcing a hard look at what the cycle of retaliation actually costs everyone caught in it.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "final-fantasy-7-remake",
+    "title": "Final Fantasy VII Remake",
+    "tagline": "AVALANCHE fights Shinra for the soul of Midgar.",
+    "releaseDate": "2020-04-10",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PS4",
+      "PS5",
+      "PC"
+    ],
+    "developer": "Square Enix",
+    "publisher": "Square Enix",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "F3hFd1WEz6U",
+      "title": "Final Fantasy VII Remake Full Gameplay Walkthrough - No Commentary [4]"
+    },
+    "lore": {
+      "en": "Mercenary Cloud Strife takes a job with the eco-terrorist group AVALANCHE, bombing the mako reactors draining the dying planet beneath the plate-city of Midgar. As Shinra's retaliation escalates and a mysterious flower girl named Aerith is pulled into the fight, Cloud's fragmented memories of his past start bleeding into a present that seems to be rewriting itself around him.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "persona-5-royal",
+    "title": "Persona 5 Royal",
+    "tagline": "Tokyo's Phantom Thieves steal the twisted hearts of adults.",
+    "releaseDate": "2020-03-31",
+    "genres": [
+      "JRPG"
+    ],
+    "platforms": [
+      "PS4",
+      "Switch",
+      "PC",
+      "Xbox"
+    ],
+    "developer": "Atlus",
+    "publisher": "Atlus",
+    "accent": "#ff5fa8",
+    "accent2": "#9e2a6b",
+    "youtube": {
+      "id": "2B7jq74NS4g",
+      "title": "PERSONA 5 ROYAL Gameplay Walkthrough FULL GAME (HD) No Commentary 100%"
+    },
+    "lore": {
+      "en": "Falsely branded a criminal and transferred to a new Tokyo high school, a nameless protagonist discovers a power to summon a rebellious inner Persona and enter the corrupted psyches of abusive adults. Banding together as the Phantom Thieves of Hearts, he and his classmates steal the distorted desires driving their targets, turning teenage outcasts into the city's most wanted vigilantes.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "half-life-alyx",
+    "title": "Half-Life: Alyx",
+    "tagline": "Alyx Vance fights the Combine occupation, years before Half-Life 2.",
+    "releaseDate": "2020-03-23",
+    "genres": [
+      "VR Shooter"
+    ],
+    "platforms": [
+      "PC (VR)"
+    ],
+    "developer": "Valve",
+    "publisher": "Valve",
+    "accent": "#39ff88",
+    "accent2": "#0f8a45",
+    "youtube": {
+      "id": "-YbeCtIsuTU",
+      "title": "HALF LIFE ALYX Gameplay Walkthrough FULL GAME (4K 60FPS) No Commentary"
+    },
+    "lore": {
+      "en": "Set between the events of Half-Life and Half-Life 2, Alyx Vance and her father Eli lead the resistance against the alien Combine's occupation of Earth from the ruins of City 17. When Eli is captured, Alyx has to infiltrate Combine territory alone, uncovering just how deep the alien empire's control over the planet, and its interest in the Vances specifically, actually runs.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "animal-crossing-new-horizons",
+    "title": "Animal Crossing: New Horizons",
+    "tagline": "Build a deserted island into a home, at your own pace.",
+    "releaseDate": "2020-03-20",
+    "genres": [
+      "Life Simulation"
+    ],
+    "platforms": [
+      "Switch"
+    ],
+    "developer": "Nintendo EPD",
+    "publisher": "Nintendo",
+    "accent": "#ffa6d9",
+    "accent2": "#a6417c",
+    "youtube": {
+      "id": "3KP9n4DKdSA",
+      "title": "ANIMAL CROSSING NEW HORIZONS Gameplay Walkthrough FULL GAME (4K 60FPS) No Commentary"
+    },
+    "lore": {
+      "en": "Signing up for Tom Nook's deserted island getaway package, a lone villager arrives with nothing but a tent and starts turning an empty island into a working town, one bridge, museum donation, and neighbor at a time. There's no real ending, only seasons and holidays looping year over year while the island, and whoever moves in beside you, keeps changing shape.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "sekiro",
+    "title": "Sekiro: Shadows Die Twice",
+    "tagline": "A disgraced shinobi hunts down his lord's kidnappers.",
+    "releaseDate": "2019-03-22",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PC",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "FromSoftware",
+    "publisher": "Activision",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "pjt_dk3K9oo",
+      "title": "SEKIRO SHADOWS DIE TWICE Full Game Walkthrough - No Commentary (#SekiroShadowsDieTwice) 2019"
+    },
+    "lore": {
+      "en": "Left for dead and missing an arm after failing to protect his young lord, the shinobi known as Wolf is rebuilt with a prosthetic arm by a mysterious sculptor and sent back into war-torn Sengoku-era Japan. Hunting the samurai clan that took his lord and the immortality-granting bloodline they're after, Wolf has to decide how much of his humanity he's willing to trade to finish the job.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "red-dead-redemption-2",
+    "title": "Red Dead Redemption 2",
+    "tagline": "Arthur Morgan rides with a gang whose time has run out.",
+    "releaseDate": "2018-10-26",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PC",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "Rockstar Games",
+    "publisher": "Rockstar Games",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "1nXH3Qdpi4o",
+      "title": "RED DEAD REDEMPTION 2 Full Game Walkthrough - No Commentary (RDR 2 Full Game)"
+    },
+    "lore": {
+      "en": "With the American frontier closing in around them, outlaw Arthur Morgan and the Van der Linde gang flee a botched robbery into the mountains, buying time they don't really have left. As lawmen, rival gangs, and cracks within the family itself close in, Arthur is forced to reckon with what decades of loyalty to Dutch van der Linde have actually cost him, and what little time he has left to make it right.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "spider-man",
+    "title": "Marvel's Spider-Man",
+    "tagline": "Eight years into the mask, Peter faces Mister Negative.",
+    "releaseDate": "2018-09-07",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS4",
+      "PS5"
+    ],
+    "developer": "Insomniac Games",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "W_tbAM-tIoE",
+      "title": "SPIDERMAN PS4 Full Game Walkthrough - No Commentary (#Marvel's Spider-man Full Game) 2018"
+    },
+    "lore": {
+      "en": "Eight years into his career as Spider-Man, an exhausted Peter Parker finally puts away Kingpin, only for the power vacuum to be filled by Mister Negative, whose ability to corrupt minds threatens the whole city, including people close to Peter. Balancing a crumbling personal life, Aunt May's work at a homeless shelter, and a growing rogues' gallery, Peter has to hold both his identities together as the city spins toward crisis.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "god-of-war",
+    "title": "God of War",
+    "tagline": "Kratos leaves Greece behind to raise a son in Midgard.",
+    "releaseDate": "2018-04-20",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS4",
+      "PC"
+    ],
+    "developer": "Santa Monica Studio",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "E3f4UgBs_TQ",
+      "title": "GOD OF WAR 2018 Gameplay Walkthrough FULL GAME [4K 60FPS] - No Commentary"
+    },
+    "lore": {
+      "en": "Long after burning his way through the Greek pantheon, Kratos now lives quietly in the Norse realm of Midgard, until his wife Faye's death and dying wish send him and his son Atreus on a journey to scatter her ashes from the highest peak in all the realms. The trip drags a god trying to leave violence behind into the middle of Norse mythology's own coming apocalypse, with fatherhood as the real, harder fight underneath it.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "zelda-breath-of-the-wild",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "tagline": "Link wakes with no memory in a Hyrule long since fallen.",
+    "releaseDate": "2017-03-03",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "Switch",
+      "Wii U"
+    ],
+    "developer": "Nintendo EPD",
+    "publisher": "Nintendo",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "Vf5qecc1Uw0",
+      "title": "ZELDA BREATH OF THE WILD Gameplay Walkthrough FULL GAME (4K 60FPS) No Commentary"
+    },
+    "lore": {
+      "en": "A hundred years after Calamity Ganon's return laid waste to Hyrule and its Guardian army, Link wakes from a century of healing sleep with almost no memory of what happened. Guided by a spirit calling herself Zelda, he sets out across an open, ruined kingdom to free the four Divine Beasts and finally put an end to the calamity he apparently failed to stop the first time.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "horizon-zero-dawn",
+    "title": "Horizon Zero Dawn",
+    "tagline": "A hunter uncovers why the world is ruled by machines.",
+    "releaseDate": "2017-02-28",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PS4",
+      "PC"
+    ],
+    "developer": "Guerrilla Games",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "kotCxZK_dTk",
+      "title": "Horizon Zero Dawn Full Game Walkthrough - No Commentary (PC 4K UHD)"
+    },
+    "lore": {
+      "en": "Centuries after civilization collapsed, humanity survives in scattered tribes sharing the land with vast robotic creatures roaming a re-wilded Earth. Outcast at birth, the hunter Aloy sets out to learn who her mother was and why she was abandoned, a search that uncovers the old-world catastrophe that made the machines, and the far more dangerous force some of them now serve.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "hollow-knight",
+    "title": "Hollow Knight",
+    "tagline": "A silent knight descends into the ruined kingdom of Hallownest.",
+    "releaseDate": "2017-02-24",
+    "genres": [
+      "Metroidvania"
+    ],
+    "platforms": [
+      "PC",
+      "Switch",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "Team Cherry",
+    "publisher": "Team Cherry",
+    "accent": "#3ee6c4",
+    "accent2": "#0c8f7a",
+    "youtube": {
+      "id": "ZYc1frJQgs8",
+      "title": "Hollow Knight FULL GAME Walkthrough Gameplay【No Commentary】4K 60FPS"
+    },
+    "lore": {
+      "en": "Drawn to the sealed entrance of Hallownest, a nameless, silent bug descends into the fallen insect kingdom beneath the town of Dirtmouth. What starts as simple exploration uncovers a kingdom destroyed by an Infection born of its own royal Pale King's ambition, and a role the wandering knight may have been built to play in ending it.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "dark-souls-3",
+    "title": "Dark Souls III",
+    "tagline": "An Ashen One is called to link the fading First Flame.",
+    "releaseDate": "2016-03-24",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "RmMbXC-NJEA",
+      "title": "Dark Souls 3 Full Game Walkthrough - No Commentary (#DarkSouls3 Full Game) 2016"
+    },
+    "lore": {
+      "en": "As the First Flame gutters out for what may be the last time, the undead Lords of Cinder who once sacrificed themselves to sustain it have abandoned their thrones, leaving the world of Lothric to decay. An Ashen One, risen from the grave, is sent to drag those Lords back to their seats of power and relink the fire, or let it die and see what comes after.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "stardew-valley",
+    "title": "Stardew Valley",
+    "tagline": "Trade a cubicle for a broken-down farm and a small town.",
+    "releaseDate": "2016-02-26",
+    "genres": [
+      "Farming Simulation"
+    ],
+    "platforms": [
+      "PC",
+      "Switch",
+      "PS4",
+      "Xbox",
+      "Mobile"
+    ],
+    "developer": "ConcernedApe",
+    "publisher": "ConcernedApe",
+    "accent": "#8fe36a",
+    "accent2": "#3f8a1f",
+    "youtube": {
+      "id": "1vsc98vUxxY",
+      "title": "THE FULL BEGINNERS Guide for Stardew Valley"
+    },
+    "lore": {
+      "en": "Burned out from a soulless corporate job, the player inherits their grandfather's overgrown farm in Stardew Valley and moves out to rebuild it from nothing. Between crops, mining, fishing, and a cast of townsfolk with their own quiet arcs, the valley's real threat turns out to be the corporate chain trying to buy up the community center at its heart.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "fallout-4",
+    "title": "Fallout 4",
+    "tagline": "A vault dweller wakes 210 years late to find their son gone.",
+    "releaseDate": "2015-11-10",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "Bethesda Game Studios",
+    "publisher": "Bethesda Softworks",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "QrFVuF5Jqws",
+      "title": "Fallout 4 - Full Game Story Walkthrough (No Commentary | 4K 60FPS)"
+    },
+    "lore": {
+      "en": "Cryogenically frozen in Vault 111 during the bombs that ended the world, the Sole Survivor thaws out over two centuries later to find their spouse murdered and their infant son kidnapped. The search for Shaun leads through the irradiated ruins of the Commonwealth and its factions, the Brotherhood, the Institute, the Railroad, each with a very different idea of what should be built from what's left.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "witcher-3",
+    "title": "The Witcher 3: Wild Hunt",
+    "tagline": "Geralt hunts his adopted daughter across a war-torn continent.",
+    "releaseDate": "2015-05-19",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS4",
+      "Xbox",
+      "Switch"
+    ],
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "accent": "#7c8cff",
+    "accent2": "#3a3f9e",
+    "youtube": {
+      "id": "nXi0hcbmWXk",
+      "title": "THE WITCHER 3: WILD HUNT Gameplay Walkthrough FULL GAME [4K 60FPS] - No Commentary"
+    },
+    "lore": {
+      "en": "With the Northern Kingdoms at war with Nilfgaard, monster hunter Geralt of Rivia searches for Ciri, the adopted daughter he trained as a witcher, before the spectral Wild Hunt finds her first. The search for Ciri weaves through a continent's worth of local tragedies and political schemes, with Geralt's choices along the way shaping just how much of it he can actually save.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "bloodborne",
+    "title": "Bloodborne",
+    "tagline": "A hunter chases a cure through the plague-lit streets of Yharnam.",
+    "releaseDate": "2015-03-24",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PS4"
+    ],
+    "developer": "FromSoftware",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "Fen45fJJ9Ko",
+      "title": "Bloodborne - Longplay Full Game Walkthrough (No Commentary)"
+    },
+    "lore": {
+      "en": "Arriving in the city of Yharnam seeking a blood-based cure, a nameless hunter finds the city already consumed by a beast-plague on the night of the hunt. What begins as a monster hunt spirals into cosmic horror, as the hunter uncovers the Healing Church's experiments into a world above the sky, and the price Yharnam's citizens paid for reaching toward it.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "gta-5",
+    "title": "Grand Theft Auto V",
+    "tagline": "Three criminals, one impossible heist city.",
+    "releaseDate": "2013-09-17",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PC",
+      "PS5",
+      "PS4",
+      "Xbox"
+    ],
+    "developer": "Rockstar North",
+    "publisher": "Rockstar Games",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "dt-zAC_-FMs",
+      "title": "Grand Theft Auto V Enhanced Edition Gameplay Walkthrough Part 1 [PC 4K 60FPS] - No Commentary"
+    },
+    "lore": {
+      "en": "Retired bank robber Michael, street hustler Franklin, and unhinged loose cannon Trevor cross paths in the sprawl of Los Santos, pulled together by a shared talent for heists and a shared distrust of everyone around them, including each other. Federal agents, rival gangs, and their own worse instincts keep dragging the trio back together for one more job neither of them can really afford to walk away from.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "the-last-of-us",
+    "title": "The Last of Us",
+    "tagline": "A smuggler is hired to escort a girl across a ruined America.",
+    "releaseDate": "2013-06-14",
+    "genres": [
+      "Action Adventure"
+    ],
+    "platforms": [
+      "PS3",
+      "PS4",
+      "PS5",
+      "PC"
+    ],
+    "developer": "Naughty Dog",
+    "publisher": "Sony Interactive Entertainment",
+    "accent": "#ffcf3f",
+    "accent2": "#a6791a",
+    "youtube": {
+      "id": "Qv8RJVEjAyg",
+      "title": "The Last of Us Remastered Walkthrough Gameplay Full Game – PS4 Pro No Commentary"
+    },
+    "lore": {
+      "en": "Twenty years into a fungal pandemic that turned much of humanity into infected monsters, hardened smuggler Joel is hired to escort fourteen-year-old Ellie across a quarantined, collapsing country. Ellie's apparent immunity to the infection turns a simple courier job into a journey that reopens Joel's own buried grief, and eventually forces a choice about what he's actually willing to sacrifice for her.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "minecraft",
+    "title": "Minecraft",
+    "tagline": "Punch a tree, and build absolutely anything from there.",
+    "releaseDate": "2011-11-18",
+    "genres": [
+      "Sandbox Survival"
+    ],
+    "platforms": [
+      "PC",
+      "Mobile",
+      "Console",
+      "Switch"
+    ],
+    "developer": "Mojang Studios",
+    "publisher": "Mojang Studios",
+    "accent": "#c8ff4d",
+    "accent2": "#6f9e13",
+    "youtube": {
+      "id": "FC2czMA2Pjc",
+      "title": "Minecraft Survival Java Edition - FULL GAME Walkthrough - No commentary"
+    },
+    "lore": {
+      "en": "Dropped into a procedurally generated world with nothing but bare hands, a player has to punch trees, mine stone, and survive the monsters that spawn once night falls, building up toward tools, shelter, and eventually a portal to the hostile Nether. There's no fixed story beyond that loop; what gets built, and how far a given world goes toward defeating the End's dragon, is entirely up to whoever's playing.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "skyrim",
+    "title": "The Elder Scrolls V: Skyrim",
+    "tagline": "A prisoner turns out to be Skyrim's prophesied Dragonborn.",
+    "releaseDate": "2011-11-11",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS3",
+      "Xbox",
+      "Switch",
+      "PS4",
+      "Xbox One"
+    ],
+    "developer": "Bethesda Game Studios",
+    "publisher": "Bethesda Softworks",
+    "accent": "#7c8cff",
+    "accent2": "#3a3f9e",
+    "youtube": {
+      "id": "nr62-GnrrOs",
+      "title": "Skyrim - Longplay Main Quest Full Game Walkthrough (No Commentary)"
+    },
+    "lore": {
+      "en": "Pulled from a prisoner transport moments before execution by the sudden return of dragons to Skyrim, an unnamed captive discovers they're Dragonborn, able to absorb a dragon's soul and shout with a dragon's power. Between a civil war splitting the province in two and the return of the world-eating dragon Alduin, the Dragonborn is dragged, however reluctantly, toward becoming the one thing standing between Skyrim and both.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "terraria",
+    "title": "Terraria",
+    "tagline": "Dig, build, and fight your way from dirt to the stars.",
+    "releaseDate": "2011-05-16",
+    "genres": [
+      "Sandbox Survival"
+    ],
+    "platforms": [
+      "PC",
+      "Mobile",
+      "Console",
+      "Switch"
+    ],
+    "developer": "Re-Logic",
+    "publisher": "Re-Logic",
+    "accent": "#c8ff4d",
+    "accent2": "#6f9e13",
+    "youtube": {
+      "id": "ZS9TFsc0jNQ",
+      "title": "Terraria Guide for Beginners! Terraria Progression Guide for Casuals! Terraria Guide Walkthrough!"
+    },
+    "lore": {
+      "en": "Dropped onto the surface of a freshly generated 2D world, a nameless adventurer digs down into caverns, biomes, and the Underworld while building up gear tough enough to survive progressively larger bosses. The loop of digging, crafting, and boss-fighting keeps escalating from wooden swords to weapons that can fight actual celestial invasions, with no fixed ending beyond how far a player wants to push it.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "portal-2",
+    "title": "Portal 2",
+    "tagline": "Chell wakes Aperture Science's AI, and its grudge, back up.",
+    "releaseDate": "2011-04-19",
+    "genres": [
+      "Puzzle"
+    ],
+    "platforms": [
+      "PC",
+      "PS3",
+      "Xbox"
+    ],
+    "developer": "Valve",
+    "publisher": "Valve",
+    "accent": "#7ee0ff",
+    "accent2": "#1b7fa6",
+    "youtube": {
+      "id": "o-luWQ5y53w",
+      "title": "Portal 2 Full Game Walkthrough (No Commentary, 1080p 60FPS)"
+    },
+    "lore": {
+      "en": "Woken from stasis decades after escaping the first Aperture Science test chambers, Chell finds the facility half-collapsed and, briefly, in the hands of the sarcastic AI Wheatley. When a botched rescue accidentally reboots the vengeful GLaDOS, the two AIs' rivalry drags Chell through both the ruined modern facility and its buried, decades-older predecessor.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "mass-effect-2",
+    "title": "Mass Effect 2",
+    "tagline": "Shepard, freshly resurrected, assembles a suicide-mission crew.",
+    "releaseDate": "2010-01-26",
+    "genres": [
+      "Action RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PS3",
+      "Xbox"
+    ],
+    "developer": "BioWare",
+    "publisher": "Electronic Arts",
+    "accent": "#a970ff",
+    "accent2": "#5b2a9e",
+    "youtube": {
+      "id": "jL7ocFmmrQU",
+      "title": "MASS EFFECT 2 Gameplay Walkthrough FULL GAME (4K 60FPS) No Commentary"
+    },
+    "lore": {
+      "en": "Killed in the opening minutes and rebuilt by the shadowy pro-human group Cerberus, Commander Shepard is sent after a mysterious enemy abducting entire human colonies with no survivors left behind. Recruiting a crew of specialists across the galaxy for what everyone agrees is a one-way suicide mission, Shepard has to decide how much trust to put in Cerberus, and in a crew mostly loyal to their own causes first.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  },
+  {
+    "slug": "world-of-warcraft",
+    "title": "World of Warcraft",
+    "tagline": "Azeroth's endless war between Horde and Alliance, still going.",
+    "releaseDate": "2004-11-23",
+    "genres": [
+      "MMORPG"
+    ],
+    "platforms": [
+      "PC"
+    ],
+    "developer": "Blizzard Entertainment",
+    "publisher": "Blizzard Entertainment",
+    "accent": "#4d7fff",
+    "accent2": "#1f3f9e",
+    "youtube": {
+      "id": "igrq4lf1eWw",
+      "title": "World of Warcraft Complete Beginner Guide 2026 For Returning & New Players | Midnight"
+    },
+    "lore": {
+      "en": "Set generations after the Second War left Azeroth divided, World of Warcraft drops players into the ongoing struggle between the Horde and the Alliance, playable across dozens of races and classes with their own history in the setting. Two decades and more than a dozen expansions later, the same core conflict has expanded across shattered continents, the Twisting Nether, and time itself, without ever fully resolving.",
+      "de": "",
+      "es": "",
+      "fr": ""
+    }
+  }
+]
