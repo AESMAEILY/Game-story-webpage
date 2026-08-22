@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Game Codex — static page generator.
+GameStoryHub — static page generator.
 
 Regenerates games/<slug>.html for every entry in data/games.json.
 
@@ -146,8 +146,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} — Walkthrough &amp; Lore | Game Codex</title>
-<meta name="description" content="{tagline} Top YouTube walkthrough, release info, and story lore for {title} on Game Codex.">
+<title>{title} — Walkthrough &amp; Story | GameStoryHub</title>
+<meta name="description" content="{tagline} Top YouTube walkthrough, release info, and story for {title} on GameStoryHub.">
 <link rel="icon" href="{favicon}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,7 +161,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <header class="site-nav">
   <a class="brand" href="../index.html">
     <span class="brand-mark">⚡</span>
-    <span>Game Codex<small>Walkthroughs &amp; Lore</small></span>
+    <span>GameStoryHub<small>Walkthroughs &amp; Story</small></span>
   </a>
   <nav class="nav-links" aria-label="Primary">
     <a href="../index.html">Home</a>
@@ -256,7 +256,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 
 <footer class="site-footer">
   <div class="container">
-    <span>Game Codex — a fan-made walkthrough &amp; lore hub. Videos embedded via YouTube; all game titles and art are property of their respective publishers.</span>
+    <span>GameStoryHub — a fan-made walkthrough &amp; story hub. Videos embedded via YouTube; all game titles and art are property of their respective publishers.</span>
+    <span>&copy; 2026 Alireza Esmaeily. All rights reserved. This site's design and code are proprietary — see <a href="https://github.com/AESMAEILY/Game-story-webpage/blob/main/LICENSE" target="_blank" rel="noopener">LICENSE</a>.</span>
     <span><a href="../browse.html">Browse all games</a></span>
   </div>
 </footer>

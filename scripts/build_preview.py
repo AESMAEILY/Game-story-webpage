@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bundles the multi-page Game Codex site into ONE self-contained HTML file
+"""Bundles the multi-page GameStoryHub site into ONE self-contained HTML file
 (hash-routed SPA) for a live Artifact preview. Not part of the deliverable &mdash;
 the real deliverable is the multi-page static site in the project root."""
 import base64
@@ -29,7 +29,7 @@ for _game in GAMES:
 
 GAMES_JSON = json.dumps(GAMES, ensure_ascii=False)
 
-HTML = """<title>Game Codex</title>
+HTML = """<title>GameStoryHub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@ __CSS__
 <header class="site-nav">
   <a class="brand" href="javascript:void(0)" data-nav="/">
     <span class="brand-mark">&#9889;</span>
-    <span>Game Codex<small>Walkthroughs &amp; Lore</small></span>
+    <span>GameStoryHub<small>Walkthroughs &amp; Story</small></span>
   </a>
   <nav class="nav-links" aria-label="Primary">
     <a href="javascript:void(0)" data-route="home" data-nav="/">Home</a>
@@ -67,7 +67,8 @@ __CSS__
 
 <footer class="site-footer">
   <div class="container">
-    <span>Game Codex &mdash; a fan-made walkthrough &amp; lore hub. Videos embedded via YouTube; all game titles and art are property of their respective publishers.</span>
+    <span>GameStoryHub &mdash; a fan-made walkthrough &amp; story hub. Videos embedded via YouTube; all game titles and art are property of their respective publishers.</span>
+    <span>&copy; 2026 Alireza Esmaeily. All rights reserved. Site design and code are proprietary.</span>
     <span><a href="javascript:void(0)" data-nav="/browse">Browse all games</a></span>
   </div>
 </footer>
@@ -361,7 +362,7 @@ __GAMES_JSON__
       '<section class="hero">' +
         '<div class="hero-bg" id="particles-host"></div>' +
         '<div class="container">' +
-          '<p class="hero-eyebrow">50 games &middot; walkthroughs &amp; lore</p>' +
+          '<p class="hero-eyebrow">50 games &middot; walkthroughs &amp; story</p>' +
           '<h1>Every walkthrough. <span class="grad">Every story.</span> One codex.</h1>' +
           '<p class="lead">Search top-rated YouTube walkthroughs and hand-written story summaries for 50 of gaming\\'s biggest titles &mdash; from this year\\'s releases back to the classics that defined their genres.</p>' +
           '<div class="search-hero">' +
@@ -381,7 +382,7 @@ __GAMES_JSON__
         '</div>' +
       '</section>' +
       '<section class="section"><div class="container">' +
-        '<div class="section-head"><div><h2>Trending now</h2><p>Hover any tile for a muted preview &mdash; click through for the full walkthrough and lore.</p></div><a class="see-all" href="javascript:void(0)" data-nav="/browse">Browse all games &rarr;</a></div>' +
+        '<div class="section-head"><div><h2>Trending now</h2><p>Hover any tile for a muted preview &mdash; click through for the full walkthrough and story.</p></div><a class="see-all" href="javascript:void(0)" data-nav="/browse">Browse all games &rarr;</a></div>' +
         '<div class="grid" id="trending-grid"></div>' +
       '</div></section>' +
       '<section class="section" style="padding-top:0;"><div class="container">' +
@@ -408,7 +409,7 @@ __GAMES_JSON__
 
     app.innerHTML =
       '<section class="section" style="padding-bottom:0;"><div class="container">' +
-        '<div class="section-head"><div><h2>Browse the codex</h2><p>Live search across all 50 titles &mdash; filters apply instantly, no reload.</p></div></div>' +
+        '<div class="section-head"><div><h2>Browse the hub</h2><p>Live search across all 50 titles &mdash; filters apply instantly, no reload.</p></div></div>' +
         '<div class="browse-toolbar">' +
           '<div class="browse-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>' +
             '<input type="search" id="browse-search-input" placeholder="Search by title, genre, developer&hellip;" aria-label="Search games" autocomplete="off"></div>' +
@@ -446,7 +447,7 @@ __GAMES_JSON__
         return state.sort === "date-desc" ? (a.releaseDate < b.releaseDate ? 1 : -1) : (a.releaseDate > b.releaseDate ? 1 : -1);
       });
       countEl.textContent = filtered.length + (filtered.length === 1 ? " game" : " games") +
-        (state.q || state.genre || state.platform ? " matching your filters." : " in the codex.");
+        (state.q || state.genre || state.platform ? " matching your filters." : " in the hub.");
       renderGrid(grid, filtered);
     }
 
