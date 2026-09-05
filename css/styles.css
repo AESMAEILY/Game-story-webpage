@@ -1,5 +1,5 @@
 /* =========================================================
-   GameStoryHub — shared styles
+   Digi-games — shared styles
    Dark, glow-accented, gaming-industry aesthetic.
    Every page sets --accent / --accent2 to its own game's
    colors (game pages) or falls back to the site defaults.
@@ -60,134 +60,302 @@ h1, h2, h3, h4 {
 ::-webkit-scrollbar-thumb { background: var(--bg-elev-2); border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-/* =================== NAV =================== */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 16px clamp(16px, 4vw, 40px);
-  background: rgba(7,7,13,0.72);
-  backdrop-filter: blur(14px) saturate(140%);
-  border-bottom: 1px solid var(--line-soft);
+/* =================== NAV: floating dock =================== */
+/* A tiny floating capsule rather than a full-width bar: a vertical icon dock
+   pinned to the left edge on desktop, which becomes a bottom tab bar on
+   narrow viewports. Both share the same markup/JS — a single .dock-indicator
+   pill is repositioned (via getBoundingClientRect-style geometry, so it
+   works in either row or column layout) to sit behind whichever .dock-link
+   is active, and slides there with a spring-like transition. Reserved space
+   for the dock is carved out of the page with body padding rather than by
+   pushing .container around, so every page's own layout stays untouched. */
+body {
+  padding-left: 0;
+  padding-bottom: 0;
+}
+@media (min-width: 861px) {
+  body { padding-left: 88px; }
+}
+@media (max-width: 860px) {
+  body { padding-bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
 }
 
-.brand {
+.dock-nav {
+  position: fixed;
+  z-index: 60;
   display: flex;
   align-items: center;
-  gap: 10px;
+  background: rgba(12,12,20,0.6);
+  backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+@media (min-width: 861px) {
+  .dock-nav {
+    left: 18px;
+    top: 50%;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 0;
+    width: 56px;
+    border-radius: 999px;
+    transform: translate(-90px, -50%);
+    opacity: 0;
+    animation: dockSlideIn .55s .15s cubic-bezier(.2,.8,.24,1) forwards;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dock-nav { animation: none !important; transform: translateY(-50%) !important; opacity: 1 !important; }
+}
+@keyframes dockSlideIn {
+  to { transform: translate(0, -50%); opacity: 1; }
+}
+
+.dock-brand {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  margin: 0 auto 4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #060609;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.15rem;
-  white-space: nowrap;
+  font-size: 0.8rem;
+  letter-spacing: -0.03em;
+  box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 55%, transparent);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.brand-mark {
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  display: grid; place-items: center;
-  font-size: 0.95rem;
-  color: #060609;
-  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 55%, transparent);
-  flex-shrink: 0;
-}
-.brand small {
-  display: block;
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
-  color: var(--text-faint);
-  text-transform: uppercase;
-  margin-top: 1px;
-}
+.dock-brand:hover { transform: scale(1.08); box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 75%, transparent); }
 
-.nav-links {
+.dock-links {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  font-size: 0.92rem;
-  font-weight: 500;
+  gap: 2px;
 }
-.nav-links a {
-  padding: 8px 14px;
+.dock-indicator {
+  position: absolute;
+  z-index: 0;
   border-radius: 999px;
-  color: var(--text-dim);
-  transition: color .15s ease, background .15s ease;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 30%, transparent), color-mix(in srgb, var(--accent2) 22%, transparent));
+  border: 1px solid color-mix(in srgb, var(--accent2) 45%, transparent);
+  box-shadow: 0 0 18px -2px color-mix(in srgb, var(--accent) 55%, transparent);
+  opacity: 0;
+  transition: top .4s cubic-bezier(.2,.85,.3,1), left .4s cubic-bezier(.2,.85,.3,1),
+              width .4s cubic-bezier(.2,.85,.3,1), height .4s cubic-bezier(.2,.85,.3,1),
+              opacity .25s ease;
 }
-.nav-links a:hover, .nav-links a.active {
+.dock-indicator.ready { opacity: 1; }
+
+.dock-link {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color .2s ease, transform .15s ease;
+}
+.dock-icon { width: 18px; height: 18px; flex-shrink: 0; }
+.dock-link:hover { color: var(--text); transform: scale(1.08); }
+.dock-link.active { color: var(--text); }
+.dock-link:active { transform: scale(0.92); }
+
+/* icon-only on desktop, with a flyout label pill on hover/focus */
+.dock-label {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translate(-6px, -50%);
+  white-space: nowrap;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   color: var(--text);
   background: var(--bg-elev-2);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+.dock-link:hover .dock-label,
+.dock-link:focus-visible .dock-label {
+  opacity: 1;
+  transform: translate(0, -50%);
 }
 
-.nav-search {
-  position: relative;
-  flex: 1;
-  max-width: 340px;
+.dock-search-toggle { margin-top: 4px; }
+
+@media (min-width: 861px) {
+  .dock-nav::after {
+    content: "";
+    position: absolute;
+    left: 10px; right: 10px;
+    top: 52px;
+    height: 1px;
+    background: var(--line-soft);
+  }
 }
-.nav-search input {
-  width: 100%;
+
+/* -------- mobile: same markup becomes a bottom tab bar -------- */
+@media (max-width: 860px) {
+  .dock-nav {
+    left: 0; right: 0; bottom: 0; top: auto;
+    transform: none;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 62px;
+    padding: 0 8px calc(0px + env(safe-area-inset-bottom, 0px));
+    border-radius: 0;
+    border-left: none; border-right: none; border-bottom: none;
+    animation: none;
+    opacity: 1;
+  }
+  .dock-brand { display: none; }
+  .dock-nav::after { display: none; }
+  .dock-links {
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+  .dock-link {
+    flex-direction: column;
+    gap: 2px;
+    width: auto;
+    height: 100%;
+    padding: 0 14px;
+    border-radius: 12px;
+  }
+  .dock-link .dock-icon { width: 20px; height: 20px; }
+  .dock-label {
+    position: static;
+    display: block;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: inherit;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .dock-search-toggle {
+    margin-top: 0;
+    flex-direction: column;
+    gap: 2px;
+    height: 100%;
+    padding: 0 14px;
+  }
+  .dock-indicator { border-radius: 12px; }
+}
+
+/* -------- expanding search overlay, opened from the dock's search icon -------- */
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: min(14vh, 130px);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .22s ease, visibility 0s linear .22s;
+}
+.search-overlay.open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .22s ease;
+}
+.search-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4,4,9,0.72);
+  backdrop-filter: blur(6px);
+}
+.search-overlay-panel {
+  position: relative;
+  width: min(560px, calc(100vw - 48px));
   background: var(--bg-elev);
   border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 9px 16px 9px 38px;
-  color: var(--text);
-  font-size: 0.88rem;
-  font-family: var(--font-body);
-  outline: none;
-  transition: border-color .15s ease, box-shadow .15s ease;
+  border-radius: var(--radius);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  padding: 10px 14px;
+  transform: translateY(-16px) scale(0.97);
+  transition: transform .25s cubic-bezier(.2,.8,.3,1);
 }
-.nav-search input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
-}
-.nav-search svg {
+.search-overlay.open .search-overlay-panel { transform: translateY(0) scale(1); }
+.search-overlay-panel > svg {
   position: absolute;
-  left: 13px; top: 50%;
-  transform: translateY(-50%);
-  width: 15px; height: 15px;
+  left: 24px; top: 24px;
+  width: 18px; height: 18px;
   color: var(--text-faint);
   pointer-events: none;
 }
-.nav-search-results {
+.search-overlay-panel input {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-size: 1.02rem;
+  font-family: var(--font-body);
+  padding: 12px 40px 12px 34px;
+}
+.search-overlay-close {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 0; right: 0;
-  background: var(--bg-elev);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-  display: none;
-  max-height: 60vh;
+  right: 10px; top: 10px;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg-elev-2);
+  color: var(--text-dim);
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: color .15s ease, background .15s ease;
+}
+.search-overlay-close svg { width: 14px; height: 14px; }
+.search-overlay-close:hover { color: var(--text); background: color-mix(in srgb, var(--danger) 25%, var(--bg-elev-2)); }
+
+.nav-search-results {
+  max-height: 50vh;
   overflow-y: auto;
+  border-top: 1px solid var(--line-soft);
+  margin-top: 4px;
+  display: none;
 }
 .nav-search-results.open { display: block; }
 .nav-search-results a {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 14px;
+  padding: 10px 8px;
   font-size: 0.86rem;
   border-bottom: 1px solid var(--line-soft);
 }
 .nav-search-results a:last-child { border-bottom: none; }
-.nav-search-results a:hover { background: var(--bg-elev-2); }
+.nav-search-results a:hover { background: var(--bg-elev-2); border-radius: var(--radius-sm); }
 .nav-search-results .swatch {
   width: 26px; height: 26px; border-radius: 6px; flex-shrink: 0;
 }
 .nav-search-results .meta { color: var(--text-faint); font-size: 0.74rem; }
-.nav-search-empty { padding: 14px; color: var(--text-faint); font-size: 0.82rem; }
-
-.nav-toggle { display: none; }
-
-@media (max-width: 860px) {
-  .nav-links { display: none; }
-  .nav-search { max-width: none; }
-}
+.nav-search-empty { padding: 14px 8px; color: var(--text-faint); font-size: 0.82rem; }
 
 /* =================== BUTTONS / CHIPS =================== */
 .btn {
@@ -268,25 +436,118 @@ h1, h2, h3, h4 {
   pointer-events: none;
 }
 
-.hero-eyebrow {
-  display: inline-flex;
+/* =================== HERO BRAND LOCKUP =================== */
+/* Logo mark + wordmark + tagline shown at the top of the home hero, above the
+   carousel -- styled after a neon-tube sign (inspiration: a glowing
+   neon-script wordmark with drifting dust/sparkle motes). Sequence: the
+   badge pops in with a spring + one expanding "ping" ring, then the wordmark
+   ITSELF flickers on like a neon tube igniting (a few quick brightness
+   stutters before it catches), settles into a slow idle glow-breathe, and
+   the tagline fades in last. A handful of GC.spawnSparkles dust motes drift
+   around the whole lockup throughout. All gated for prefers-reduced-motion
+   below (sparkles are skipped outright, not just paused). */
+.hero-brand {
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.76rem;
+  gap: 16px;
+  margin-bottom: clamp(22px, 4vw, 34px);
+}
+.brand-sparkle {
+  position: absolute;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow: 0 0 6px 1px color-mix(in srgb, var(--accent2) 80%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  animation: sparkleTwinkle 2.2s ease-in-out infinite;
+}
+@keyframes sparkleTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.4); }
+  50% { opacity: 1; transform: scale(1); }
+}
+.hero-logo {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(46px, 6vw, 60px);
+  height: clamp(46px, 6vw, 60px);
+  display: grid;
+  place-items: center;
+}
+.hero-logo-ring {
+  position: absolute;
+  inset: -7px;
+  border-radius: 30%;
+  border: 1.5px solid color-mix(in srgb, var(--accent2) 55%, transparent);
+  opacity: 0;
+  animation: logoRing 2.6s ease-out .8s infinite;
+}
+@keyframes logoRing {
+  0% { opacity: 0.55; transform: scale(0.8); }
+  75%, 100% { opacity: 0; transform: scale(1.4); }
+}
+.hero-logo-badge {
+  position: relative;
+  z-index: 1;
+  width: 100%; height: 100%;
+  border-radius: 30%;
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #06060a;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  letter-spacing: -0.03em;
+  box-shadow: 0 10px 30px -6px color-mix(in srgb, var(--accent) 65%, transparent);
+  opacity: 0;
+  transform: scale(0.4) rotate(-20deg);
+  animation: logoPop .7s .1s cubic-bezier(.2,.9,.25,1.2) forwards;
+}
+@keyframes logoPop { to { opacity: 1; transform: scale(1) rotate(0deg); } }
+
+.hero-brand-text { display: flex; flex-direction: column; gap: 3px; }
+.hero-brand-name {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  letter-spacing: -0.01em;
+  background: linear-gradient(110deg, var(--text) 30%, var(--accent) 45%, var(--accent2) 55%, var(--text) 70%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow:
+    0 0 8px color-mix(in srgb, var(--accent2) 70%, transparent),
+    0 0 22px color-mix(in srgb, var(--accent) 45%, transparent),
+    0 0 46px color-mix(in srgb, var(--accent) 25%, transparent);
+  opacity: 0;
+  animation: neonIgnite 1.4s .45s cubic-bezier(.2,.8,.3,1) forwards,
+             brandGlowBreathe 3.4s 1.95s ease-in-out infinite;
+}
+@keyframes neonIgnite {
+  0% { opacity: 0; filter: brightness(0.4) saturate(0.6); }
+  8% { opacity: 1; filter: brightness(1.6) saturate(1.3); }
+  16% { opacity: 0.25; filter: brightness(0.5); }
+  24% { opacity: 1; filter: brightness(1.5); }
+  32% { opacity: 0.35; filter: brightness(0.6); }
+  42% { opacity: 1; filter: brightness(1.25); }
+  60% { opacity: 0.85; filter: brightness(0.95); }
+  100% { opacity: 1; filter: brightness(1) saturate(1); }
+}
+@keyframes brandGlowBreathe {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+.hero-brand-tagline {
+  font-size: clamp(0.72rem, 1.2vw, 0.86rem);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--accent2);
+  color: var(--text-faint);
   font-weight: 700;
-  margin-bottom: 18px;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: taglineIn .6s 1.9s ease forwards;
 }
-.hero-eyebrow::before {
-  content: "";
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent2);
-  box-shadow: 0 0 10px var(--accent2);
-  animation: pulse 1.8s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+@keyframes taglineIn { to { opacity: 1; transform: translateY(0); } }
 
 .hero h1 {
   font-size: clamp(2.4rem, 6vw, 4.4rem);
@@ -305,6 +566,167 @@ h1, h2, h3, h4 {
   color: var(--text-dim);
   max-width: 56ch;
   margin-bottom: 36px;
+}
+
+/* =================== HERO CAROUSEL =================== */
+/* Coverflow-style featured strip: one absolutely-centered .carousel-card per
+   game, repositioned by JS (translateX/rotateY/scale keyed off distance from
+   the active index) so the active card sits upright and large while its
+   neighbors lean away in 3D on either side. Cards reuse .tile-art /
+   posterArtHTML so they read as the same "poster" system as every grid tile
+   on the site. The stage gets a "motion-ok" class from JS (skipped when the
+   viewer prefers reduced motion) that unlocks the glow/float/pop extras —
+   card positioning itself still works without it. */
+.hero-carousel {
+  position: relative;
+  margin-bottom: clamp(36px, 6vw, 56px);
+}
+.carousel-stage {
+  position: relative;
+  height: clamp(260px, 34vw, 400px);
+  max-width: 880px;
+  margin: 0 auto 26px;
+  outline: none;
+  perspective: 1400px;
+}
+.carousel-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: clamp(160px, 20vw, 240px);
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform .65s cubic-bezier(.22,.85,.26,1), opacity .5s ease, box-shadow .4s ease;
+}
+.carousel-card-media {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.carousel-card .tile-art { position: absolute; inset: 0; padding: 0; }
+
+/* active-card extras (glow ring + gentle float), gated on motion-ok */
+.hero-carousel.motion-ok .carousel-card.is-active {
+  animation: cardGlow 2.8s ease-in-out infinite;
+}
+@keyframes cardGlow {
+  0%, 100% { box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06), 0 0 34px -8px color-mix(in srgb, var(--tile-accent) 45%, transparent); }
+  50%      { box-shadow: 0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06), 0 0 60px -4px color-mix(in srgb, var(--tile-accent) 70%, transparent); }
+}
+.hero-carousel.motion-ok .carousel-card.is-active .carousel-card-media {
+  animation: cardFloat 3.6s ease-in-out infinite;
+}
+@keyframes cardFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+/* one-time staggered entrance, before JS settles cards into place */
+.carousel-card.card-enter {
+  opacity: 0 !important;
+  transform: translateX(-50%) translateY(26px) scale(0.85) !important;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(7,7,13,0.7);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  display: grid; place-items: center;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity .2s ease, border-color .2s ease, background .2s ease, transform .15s ease, box-shadow .2s ease;
+}
+.carousel-arrow svg { width: 18px; height: 18px; }
+.carousel-arrow-prev { left: clamp(-6px, 1vw, 8px); }
+.carousel-arrow-next { right: clamp(-6px, 1vw, 8px); }
+.carousel-arrow:hover {
+  opacity: 1;
+  border-color: var(--accent);
+  background: var(--bg-elev-2);
+  box-shadow: 0 0 22px -4px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+.carousel-arrow:active { transform: translateY(-50%) scale(0.88); }
+.carousel-arrow:focus-visible { opacity: 1; outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.carousel-title {
+  text-align: center;
+  font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+  letter-spacing: 0.01em;
+  margin-bottom: 22px;
+  transition: opacity .22s ease, transform .22s ease;
+}
+.carousel-title.swap {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.carousel-dots {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  height: 18px;
+}
+.carousel-dots::before {
+  content: "";
+  position: absolute;
+  left: 8%; right: 8%; top: 50%;
+  height: 1px;
+  background: var(--line);
+  z-index: 0;
+}
+.carousel-dot {
+  position: relative;
+  z-index: 1;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--text-faint);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: width .25s ease, height .25s ease, background .25s ease, border-color .25s ease, opacity .25s ease;
+}
+.carousel-dot:hover { opacity: 1; }
+.carousel-dot.active {
+  width: 17px; height: 17px;
+  background: transparent;
+  border: 2px solid var(--accent2);
+  opacity: 1;
+}
+.hero-carousel.motion-ok .carousel-dot.active {
+  animation: dotPop .35s ease;
+}
+@keyframes dotPop {
+  0%   { transform: scale(0.4); }
+  60%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+.carousel-dot.active::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--accent2);
+  box-shadow: 0 0 10px var(--accent2);
+}
+
+@media (max-width: 640px) {
+  .carousel-arrow { width: 36px; height: 36px; }
+  .carousel-arrow-prev { left: -4px; }
+  .carousel-arrow-next { right: -4px; }
 }
 
 /* big search */
@@ -365,26 +787,131 @@ h1, h2, h3, h4 {
 .search-hero-results .swatch { width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0; }
 .search-hero-results .meta { color: var(--text-faint); font-size: 0.76rem; }
 
-/* stat row */
-.stat-row {
+/* =================== HERO IMPACT ROW =================== */
+/* Four data-backed stats (computed from data/games.json at load time by
+   GC.computeStats -- never hand-typed, so they can't go stale, except the
+   honest "0" placeholder for subscribers until a real signup exists), each
+   framed in a small donut ring whose sweep animates in lockstep with the
+   number counting up (GameCodex.animateCounters drives both). An empty
+   target (subscribers = 0) is deliberately left as an EMPTY ring -- rather
+   than faking a full one -- so the visual never overstates a number that
+   doesn't exist yet. A platform-family strip (GC.platformCoverage) sits
+   below, showing WHICH platforms are covered rather than a raw platform
+   count. */
+.impact-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: clamp(28px, 5vw, 56px);
-  margin-top: 52px;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 44px;
+  width: 100%;
 }
-.stat-item .stat-num {
+.impact-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 0;
+  min-width: 0;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: statIn .6s cubic-bezier(.2,.85,.25,1) forwards;
+}
+.impact-stat:nth-child(1) { animation-delay: .15s; }
+.impact-stat:nth-child(2) { animation-delay: .26s; }
+.impact-stat:nth-child(3) { animation-delay: .37s; }
+.impact-stat:nth-child(4) { animation-delay: .48s; }
+@keyframes statIn { to { opacity: 1; transform: translateY(0); } }
+
+.stat-ring { position: relative; width: 56px; height: 56px; flex-shrink: 0; }
+.stat-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.stat-ring-track { fill: none; stroke: var(--line); stroke-width: 5; }
+.stat-ring-progress {
+  fill: none;
+  stroke: var(--accent2);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 169.6;
+  stroke-dashoffset: 169.6;
+}
+.impact-stat:nth-child(1) .stat-ring-progress { stroke: var(--accent); }
+.impact-stat:nth-child(2) .stat-ring-progress { stroke: var(--accent2); }
+.impact-stat:nth-child(3) .stat-ring-progress { stroke: var(--text-faint); }
+.impact-stat:nth-child(4) .stat-ring-progress { stroke: #ffb454; }
+.stat-ring-num {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 700;
-  background: linear-gradient(120deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-size: 0.86rem;
+  line-height: 1;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
 }
-.stat-item .stat-label {
-  font-size: 0.78rem;
+.impact-label {
+  font-size: 0.64rem;
   color: var(--text-faint);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+  text-align: center;
+  white-space: nowrap;
 }
+@media (max-width: 520px) {
+  .impact-row { gap: 4px; }
+  .stat-ring { width: 44px; height: 44px; }
+  .stat-ring-num { font-size: 0.7rem; }
+  .impact-label { font-size: 0.56rem; white-space: normal; }
+}
+
+.platform-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 22px;
+  margin-top: 26px;
+  border-top: 1px solid var(--line-soft);
+}
+.platform-strip-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.platform-icons { display: flex; gap: 10px; flex-wrap: wrap; }
+.platform-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px 7px 10px;
+  border-radius: 999px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: 0.76rem;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: platIn .5s cubic-bezier(.2,.85,.25,1) forwards;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease, background .2s ease;
+}
+.platform-icon:hover {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+  background: var(--bg-elev-2);
+  transform: translateY(-2px);
+}
+.platform-icon svg { width: 15px; height: 15px; flex-shrink: 0; }
+.platform-icon:nth-child(1) { animation-delay: .55s; }
+.platform-icon:nth-child(2) { animation-delay: .63s; }
+.platform-icon:nth-child(3) { animation-delay: .71s; }
+.platform-icon:nth-child(4) { animation-delay: .79s; }
+.platform-icon:nth-child(5) { animation-delay: .87s; }
+.platform-icon:nth-child(6) { animation-delay: .95s; }
+@keyframes platIn { to { opacity: 1; transform: translateY(0); } }
 
 /* =================== SECTION HEADERS =================== */
 .section { padding: clamp(50px, 8vw, 90px) 0; }
@@ -982,7 +1509,12 @@ h1, h2, h3, h4 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg, .hero-eyebrow::before, .game-cover .tile-art-bg, .game-cover.has-photo .tile-photo, .tile-shine { animation: none !important; }
+  .hero-bg, .game-cover .tile-art-bg, .game-cover.has-photo .tile-photo, .tile-shine,
+  .hero-logo-ring, .hero-logo-badge, .hero-brand-name, .hero-brand-tagline,
+  .impact-stat, .platform-icon, .brand-sparkle { animation: none !important; }
+  .hero-logo-badge, .hero-brand-tagline, .impact-stat, .platform-icon { opacity: 1 !important; transform: none !important; }
+  .hero-brand-name { opacity: 1 !important; filter: none !important; }
+  .hero-logo-ring, .brand-sparkle { opacity: 0 !important; }
   .tile-media:hover .tile-art { transform: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
