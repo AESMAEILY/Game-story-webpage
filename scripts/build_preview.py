@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bundles the multi-page GameStoryHub site into ONE self-contained HTML file
+"""Bundles the multi-page Digi-games site into ONE self-contained HTML file
 (hash-routed SPA) for a live Artifact preview. Not part of the deliverable &mdash;
 the real deliverable is the multi-page static site in the project root."""
 import base64
@@ -29,7 +29,7 @@ for _game in GAMES:
 
 GAMES_JSON = json.dumps(GAMES, ensure_ascii=False)
 
-HTML = """<title>GameStoryHub</title>
+HTML = """<title>Digi-games</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -47,27 +47,42 @@ __CSS__
 
 <a class="skip-link" href="javascript:void(0)" data-skip="main">Skip to content</a>
 
-<header class="site-nav">
-  <a class="brand" href="javascript:void(0)" data-nav="/">
-    <span class="brand-mark">&#9889;</span>
-    <span>GameStoryHub<small>Walkthroughs &amp; Story</small></span>
-  </a>
-  <nav class="nav-links" aria-label="Primary">
-    <a href="javascript:void(0)" data-route="home" data-nav="/">Home</a>
-    <a href="javascript:void(0)" data-route="browse" data-nav="/browse">Browse</a>
-  </nav>
-  <div class="nav-search">
+<nav class="dock-nav" id="dock-nav" aria-label="Primary">
+  <a class="dock-brand" href="javascript:void(0)" data-nav="/" aria-label="Digi-games home">DG</a>
+  <div class="dock-links">
+    <div class="dock-indicator" id="dock-indicator"></div>
+    <a href="javascript:void(0)" class="dock-link" data-route="home" data-nav="/">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.5L12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9 20v-6h6v6"/></svg>
+      <span class="dock-label">Home</span>
+    </a>
+    <a href="javascript:void(0)" class="dock-link" data-route="browse" data-nav="/browse">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>
+      <span class="dock-label">Browse</span>
+    </a>
+    <button type="button" class="dock-link dock-search-toggle" id="dock-search-toggle" aria-label="Search games" aria-haspopup="dialog">
+      <svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <span class="dock-label">Search</span>
+    </button>
+  </div>
+</nav>
+
+<div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="Search games">
+  <div class="search-overlay-backdrop" id="search-overlay-backdrop"></div>
+  <div class="search-overlay-panel">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
     <input type="search" id="nav-search-input" placeholder="Search games&hellip;" aria-label="Search games">
+    <button type="button" class="search-overlay-close" id="search-overlay-close" aria-label="Close search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
     <div class="nav-search-results" id="nav-search-results"></div>
   </div>
-</header>
+</div>
 
 <main id="main"><div id="app"></div></main>
 
 <footer class="site-footer">
   <div class="container">
-    <span>GameStoryHub &mdash; a fan-made walkthrough &amp; story hub. Videos embedded via YouTube; all game titles and art are property of their respective publishers.</span>
+    <span>Digi-games &mdash; a fan-made hub for walkthroughs, story, and everything you need to play. Videos embedded via YouTube; all game titles and art are property of their respective publishers.</span>
     <span>&copy; 2026 Alireza Esmaeily. All rights reserved. Site design and code are proprietary.</span>
     <span><a href="javascript:void(0)" data-nav="/browse">Browse all games</a></span>
   </div>
@@ -102,6 +117,50 @@ __GAMES_JSON__
   }
   function year(iso) { return iso.slice(0, 4); }
   function gameHref(slug) { return "/game/" + slug; }
+
+  // Data-backed hero stats + platform-family coverage. Mirrors GC.computeStats
+  // / GC.platformCoverage / GC.spawnSparkles in js/site.js.
+  var SUBSCRIBER_COUNT = 0; // no signup mechanism yet -- a real "0", not a stale guess
+  function computeStats(games) {
+    var studios = new Set(games.map(function (g) { return g.developer; })).size;
+    var earliestYear = games.reduce(function (min, g) { return Math.min(min, parseInt(g.releaseDate.slice(0, 4), 10)); }, 9999);
+    return { gamesCovered: games.length, studios: studios, earliestYear: earliestYear };
+  }
+  var PLATFORM_FAMILIES = [
+    { key: "pc", label: "PC", test: function (s) { return s.indexOf("pc") !== -1 || s.indexOf("mac") !== -1; },
+      icon: '<rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 17v3"/>' },
+    { key: "playstation", label: "PlayStation", test: function (s) { return s.indexOf("ps") === 0 || s.indexOf("playstation") !== -1; },
+      icon: '<path d="M6 9c-2 0-3.3 1.6-3.6 4-.3 2.4.5 4.4 2.5 4.4 1.3 0 1.8-1 2.5-2.2.6-1 1-1.3 2-1.3h5c1 0 1.4.3 2 1.3.7 1.2 1.2 2.2 2.5 2.2 2 0 2.8-2 2.5-4.4C21.3 10.6 20 9 18 9Z"/><circle cx="16" cy="8" r=".9" fill="currentColor" stroke="none"/><circle cx="18.3" cy="10" r=".9" fill="currentColor" stroke="none"/>' },
+    { key: "xbox", label: "Xbox", test: function (s) { return s.indexOf("xbox") !== -1; },
+      icon: '<circle cx="12" cy="9.5" r="4"/><path d="M12 13.5v3M8.2 20h7.6"/>' },
+    { key: "nintendo", label: "Nintendo", test: function (s) { return s.indexOf("switch") !== -1 || s.indexOf("wii") !== -1; },
+      icon: '<rect x="4" y="6" width="16" height="12" rx="3"/><circle cx="8" cy="12" r="1.3"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/>' },
+    { key: "mobile", label: "Mobile", test: function (s) { return s.indexOf("mobile") !== -1 || s.indexOf("ios") !== -1 || s.indexOf("android") !== -1; },
+      icon: '<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/>' },
+  ];
+  function platformCoverage(games) {
+    var all = new Set();
+    games.forEach(function (g) { g.platforms.forEach(function (p) { all.add(p.toLowerCase()); }); });
+    var allArr = Array.from(all);
+    return PLATFORM_FAMILIES.filter(function (f) { return allArr.some(function (p) { return f.test(p); }); });
+  }
+  function spawnSparkles(container, count) {
+    if (!container) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    count = count || 9;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < count; i++) {
+      var s = document.createElement("span");
+      s.className = "brand-sparkle";
+      s.setAttribute("aria-hidden", "true");
+      s.style.left = (Math.random() * 96 + 2).toFixed(1) + "%";
+      s.style.top = (Math.random() * 84 + 8).toFixed(1) + "%";
+      s.style.animationDelay = (Math.random() * 2.2).toFixed(2) + "s";
+      s.style.animationDuration = (1.8 + Math.random() * 1.6).toFixed(2) + "s";
+      frag.appendChild(s);
+    }
+    container.appendChild(frag);
+  }
 
   var GENRE_ICONS = {
     "Metroidvania": '<circle cx="16" cy="20" r="5"/><circle cx="48" cy="16" r="5"/><circle cx="32" cy="48" r="5"/><path d="M20 23 L44 18 M18 24 L30 45 M46 20 L34 45"/>',
@@ -200,6 +259,195 @@ __GAMES_JSON__
     wireHoverPreviews(container);
     wireTilt(container);
     wireReveal(container);
+  }
+
+  // Home hero: coverflow-style featured carousel. One absolutely-positioned
+  // card per game inside els.stage; goTo() repositions every card by its
+  // signed distance from the active index (0 = upright/centered, ±1 = tilted
+  // side cards, further = hidden just past the edge). Mirrors js/site.js's
+  // buildCarousel — kept in sync manually since this preview bundles its own
+  // copy of the site logic rather than loading js/site.js.
+  function buildCarousel(games, els) {
+    if (!els || !els.stage || !games || games.length === 0) return;
+    var stage = els.stage, titleEl = els.title, dotsEl = els.dots;
+    var root = els.root || stage;
+    var N = games.length;
+    var current = 0;
+    var timer = null;
+    var titleSwapTimer = null;
+    var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) root.classList.add("motion-ok");
+
+    var cards = games.map(function (g, i) {
+      var el = document.createElement("div");
+      el.className = "carousel-card card-enter";
+      el.style.setProperty("--tile-accent", g.accent);
+      el.style.setProperty("--tile-accent2", g.accent2);
+      el.innerHTML = '<a class="carousel-card-media" href="javascript:void(0)" data-nav="' + gameHref(g.slug) + '" aria-label="Open ' + escapeHtml(g.title) + '" tabindex="-1">' +
+        '<div class="tile-art' + (g.poster ? ' has-photo' : '') + '">' + posterArtHTML(g) + '</div></a>';
+      el.addEventListener("click", function (e) {
+        if (i !== current) { e.preventDefault(); goTo(i); }
+      });
+      stage.appendChild(el);
+      return el;
+    });
+
+    function shortestOffset(i, cur) {
+      var d = i - cur;
+      if (d > N / 2) d -= N;
+      if (d < -N / 2) d += N;
+      return d;
+    }
+
+    function positionCard(el, i) {
+      var off = shortestOffset(i, current);
+      var abs = Math.abs(off);
+      var dir = off === 0 ? 0 : (off > 0 ? 1 : -1);
+      el.style.zIndex = String(10 - abs);
+      el.querySelector(".carousel-card-media").tabIndex = abs === 0 ? 0 : -1;
+      el.setAttribute("aria-hidden", abs === 0 ? "false" : "true");
+      el.classList.toggle("is-active", abs === 0);
+      if (abs === 0) {
+        el.style.transform = "translateX(-50%) rotateY(0deg) scale(1)";
+        el.style.opacity = "1";
+      } else if (abs === 1) {
+        el.style.transform = "translateX(calc(-50% + " + (dir * 68) + "%)) rotateY(" + (dir * -32) + "deg) scale(0.8)";
+        el.style.opacity = "0.55";
+      } else {
+        el.style.transform = "translateX(calc(-50% + " + (dir * 125) + "%)) rotateY(" + (dir * -40) + "deg) scale(0.7)";
+        el.style.opacity = "0";
+      }
+    }
+
+    function render(animateTitle) {
+      cards.forEach(positionCard);
+      if (titleEl) {
+        if (animateTitle && !reduceMotion) {
+          clearTimeout(titleSwapTimer);
+          titleEl.classList.add("swap");
+          titleSwapTimer = setTimeout(function () {
+            titleEl.textContent = games[current].title;
+            titleEl.classList.remove("swap");
+          }, 200);
+        } else {
+          titleEl.textContent = games[current].title;
+        }
+      }
+      if (dotsEl) {
+        Array.from(dotsEl.children).forEach(function (d, i) {
+          d.classList.toggle("active", i === current);
+          d.setAttribute("aria-current", i === current ? "true" : "false");
+        });
+      }
+    }
+
+    function goTo(i) {
+      if (((i % N) + N) % N === current) return;
+      current = ((i % N) + N) % N;
+      render(true);
+      resetAutoplay();
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    if (dotsEl) {
+      dotsEl.innerHTML = games.map(function (g) { return '<button type="button" class="carousel-dot" aria-label="Show ' + escapeHtml(g.title) + '"></button>'; }).join("");
+      Array.from(dotsEl.children).forEach(function (d, i) { d.addEventListener("click", function () { goTo(i); }); });
+    }
+    if (els.prevBtn) els.prevBtn.addEventListener("click", prev);
+    if (els.nextBtn) els.nextBtn.addEventListener("click", next);
+
+    stage.setAttribute("tabindex", "0");
+    stage.setAttribute("role", "region");
+    stage.setAttribute("aria-label", "Featured games carousel");
+    stage.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+      if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+    });
+
+    function resetAutoplay() {
+      clearInterval(timer);
+      if (reduceMotion) return;
+      timer = setInterval(next, 4800);
+    }
+    stage.addEventListener("pointerenter", function () { clearInterval(timer); });
+    stage.addEventListener("pointerleave", resetAutoplay);
+    stage.addEventListener("focusin", function () { clearInterval(timer); });
+    stage.addEventListener("focusout", resetAutoplay);
+
+    render(false);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        cards.forEach(function (el, i) {
+          if (!reduceMotion) {
+            el.style.transitionDelay = Math.min(Math.abs(shortestOffset(i, current)), 4) * 60 + "ms";
+          }
+          el.classList.remove("card-enter");
+        });
+        setTimeout(function () { cards.forEach(function (el) { el.style.transitionDelay = ""; }); }, 900);
+      });
+    });
+    resetAutoplay();
+  }
+
+  // Floating dock nav: sliding active-indicator pill (positioned by copying
+  // the active .dock-link's geometry) + expanding search overlay. Mirrors
+  // js/site.js's initDockNav/debounce — kept in sync manually, same as
+  // buildCarousel above.
+  function debounce(fn, wait) {
+    var t = null;
+    return function () {
+      clearTimeout(t);
+      var args = arguments;
+      t = setTimeout(function () { fn.apply(null, args); }, wait);
+    };
+  }
+
+  function initDockNav(nav) {
+    nav = nav || document.querySelector(".dock-nav");
+    if (!nav) return;
+    var indicator = nav.querySelector(".dock-indicator");
+
+    function moveIndicator() {
+      var active = nav.querySelector(".dock-link.active");
+      if (!active || !indicator) return;
+      indicator.style.left = active.offsetLeft + "px";
+      indicator.style.top = active.offsetTop + "px";
+      indicator.style.width = active.offsetWidth + "px";
+      indicator.style.height = active.offsetHeight + "px";
+      indicator.classList.add("ready");
+    }
+    moveIndicator();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(moveIndicator)["catch"](function () {});
+    }
+    window.addEventListener("resize", debounce(moveIndicator, 120));
+    window.addEventListener("orientationchange", function () { setTimeout(moveIndicator, 60); });
+
+    var overlay = document.getElementById("search-overlay");
+    var overlayBackdrop = document.getElementById("search-overlay-backdrop");
+    var overlayClose = document.getElementById("search-overlay-close");
+    var overlayInput = document.getElementById("nav-search-input");
+    var searchToggle = document.getElementById("dock-search-toggle");
+
+    function openSearch() {
+      if (!overlay) return;
+      overlay.classList.add("open");
+      setTimeout(function () { if (overlayInput) overlayInput.focus(); }, 60);
+    }
+    function closeSearch() {
+      if (!overlay || !overlay.classList.contains("open")) return;
+      overlay.classList.remove("open");
+      if (searchToggle) searchToggle.focus();
+    }
+    if (searchToggle) searchToggle.addEventListener("click", openSearch);
+    if (overlayBackdrop) overlayBackdrop.addEventListener("click", closeSearch);
+    if (overlayClose) overlayClose.addEventListener("click", closeSearch);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && overlay && overlay.classList.contains("open")) closeSearch();
+    });
+
+    return { moveIndicator: moveIndicator, openSearch: openSearch, closeSearch: closeSearch };
   }
 
   function wireHoverPreviews(scope) {
@@ -301,11 +549,22 @@ __GAMES_JSON__
         var el = entry.target;
         io.unobserve(el);
         var target = parseFloat(el.dataset.count);
+        var ring = el.closest(".stat-ring");
+        var progress = ring ? ring.querySelector(".stat-ring-progress") : null;
+        var circumference = 0;
+        if (progress) {
+          var r = parseFloat(progress.getAttribute("r")) || 27;
+          circumference = 2 * Math.PI * r;
+          progress.style.strokeDasharray = String(circumference);
+          progress.style.strokeDashoffset = String(circumference);
+        }
+        var ringFraction = target > 0 ? 1 : 0;
         var dur = 1100, start = performance.now();
         function tick(now) {
           var p = Math.min(1, (now - start) / dur);
           var eased = 1 - Math.pow(1 - p, 3);
           el.textContent = Math.round(target * eased);
+          if (progress) progress.style.strokeDashoffset = String(circumference * (1 - eased * ringFraction));
           if (p < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -355,30 +614,35 @@ __GAMES_JSON__
   function viewHome() {
     var trending = GAMES.slice(0, 12);
     var genres = Array.from(new Set(GAMES.flatMap(function (g) { return g.genres; }))).sort();
-    var platforms = Array.from(new Set(GAMES.flatMap(function (g) { return g.platforms; })));
-    var earliest = GAMES.reduce(function (a, b) { return a.releaseDate < b.releaseDate ? a : b; }).releaseDate.slice(0, 4);
+    var stats = computeStats(GAMES);
+    var families = platformCoverage(GAMES);
 
     app.innerHTML =
       '<section class="hero">' +
         '<div class="hero-bg" id="particles-host"></div>' +
         '<div class="container">' +
-          '<p class="hero-eyebrow">50 games &middot; walkthroughs &amp; story</p>' +
-          '<h1>Every walkthrough. <span class="grad">Every story.</span> One codex.</h1>' +
-          '<p class="lead">Search top-rated YouTube walkthroughs and hand-written story summaries for 50 of gaming\\'s biggest titles &mdash; from this year\\'s releases back to the classics that defined their genres.</p>' +
-          '<div class="search-hero">' +
-            '<form id="hero-search-form" role="search">' +
-              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>' +
-              '<input type="search" id="hero-search-input" placeholder="Search by title, genre, or platform&hellip;" aria-label="Search games" autocomplete="off">' +
-              '<button type="submit">Search</button>' +
-            '</form>' +
-            '<div class="search-hero-results" id="hero-search-results"></div>' +
+          '<div class="hero-brand">' +
+            '<span class="hero-logo" aria-hidden="true"><span class="hero-logo-ring"></span><span class="hero-logo-badge">DG</span></span>' +
+            '<span class="hero-brand-text"><span class="hero-brand-name" id="hero-brand-name">Digi-games</span><span class="hero-brand-tagline">All you need to play</span></span>' +
           '</div>' +
-          '<div class="stat-row">' +
-            '<div class="stat-item"><div class="stat-num" data-count="' + GAMES.length + '">0</div><div class="stat-label">Games covered</div></div>' +
-            '<div class="stat-item"><div class="stat-num" data-count="' + genres.length + '">0</div><div class="stat-label">Genres &amp; sub-genres</div></div>' +
-            '<div class="stat-item"><div class="stat-num" data-count="' + platforms.length + '">0</div><div class="stat-label">Platforms indexed</div></div>' +
-            '<div class="stat-item"><div class="stat-num" data-count="' + earliest + '">0</div><div class="stat-label">Earliest release year</div></div>' +
+          '<div class="hero-carousel" id="hero-carousel">' +
+            '<button class="carousel-arrow carousel-arrow-prev" type="button" aria-label="Previous game"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 5l-7 7 7 7"/></svg></button>' +
+            '<div class="carousel-stage" id="carousel-stage"></div>' +
+            '<button class="carousel-arrow carousel-arrow-next" type="button" aria-label="Next game"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 5l7 7-7 7"/></svg></button>' +
+            '<h2 class="carousel-title" id="carousel-title">&nbsp;</h2>' +
+            '<div class="carousel-dots" id="carousel-dots"></div>' +
           '</div>' +
+          '<div class="impact-row">' +
+            '<div class="impact-stat"><div class="stat-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="stat-ring-track" cx="32" cy="32" r="27"/><circle class="stat-ring-progress" cx="32" cy="32" r="27"/></svg><span class="stat-ring-num impact-num" data-count="' + stats.gamesCovered + '">0</span></div><span class="impact-label">Games covered</span></div>' +
+            '<div class="impact-stat"><div class="stat-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="stat-ring-track" cx="32" cy="32" r="27"/><circle class="stat-ring-progress" cx="32" cy="32" r="27"/></svg><span class="stat-ring-num impact-num" data-count="' + stats.studios + '">0</span></div><span class="impact-label">Studios featured</span></div>' +
+            '<div class="impact-stat"><div class="stat-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="stat-ring-track" cx="32" cy="32" r="27"/><circle class="stat-ring-progress" cx="32" cy="32" r="27"/></svg><span class="stat-ring-num impact-num" data-count="' + SUBSCRIBER_COUNT + '">0</span></div><span class="impact-label">Subscribers</span></div>' +
+            '<div class="impact-stat"><div class="stat-ring"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="stat-ring-track" cx="32" cy="32" r="27"/><circle class="stat-ring-progress" cx="32" cy="32" r="27"/></svg><span class="stat-ring-num impact-num" data-count="' + stats.earliestYear + '">0</span></div><span class="impact-label">Earliest release covered</span></div>' +
+          '</div>' +
+          '<div class="platform-strip"><span class="platform-strip-label">Play it on</span><div class="platform-icons">' +
+            families.map(function (f) {
+              return '<span class="platform-icon" title="Available on ' + f.label + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">' + f.icon + '</svg>' + f.label + '</span>';
+            }).join("") +
+          '</div></div>' +
         '</div>' +
       '</section>' +
       '<section class="section"><div class="container">' +
@@ -392,15 +656,18 @@ __GAMES_JSON__
         }).join("") + '</div>' +
       '</div></section>';
 
+    spawnSparkles(document.querySelector(".hero-brand"));
     renderGrid(document.getElementById("trending-grid"), trending);
+    buildCarousel(trending.slice(0, 8), {
+      root: document.getElementById("hero-carousel"),
+      stage: document.getElementById("carousel-stage"),
+      title: document.getElementById("carousel-title"),
+      dots: document.getElementById("carousel-dots"),
+      prevBtn: document.querySelector(".carousel-arrow-prev"),
+      nextBtn: document.querySelector(".carousel-arrow-next"),
+    });
     initParticles(document.getElementById("particles-host"));
     animateCounters(app);
-    wireSearchWidget(document.getElementById("hero-search-input"), document.getElementById("hero-search-results"));
-    document.getElementById("hero-search-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      var q = document.getElementById("hero-search-input").value.trim();
-      window.location.hash = "#/browse" + (q ? "?q=" + encodeURIComponent(q) : "");
-    });
   }
 
   function viewBrowse(qs) {
@@ -604,7 +871,8 @@ __GAMES_JSON__
     var path = qIndex === -1 ? hash : hash.slice(0, qIndex);
     var qs = qIndex === -1 ? "" : hash.slice(qIndex + 1);
 
-    document.querySelectorAll(".nav-links a").forEach(function (a) { a.classList.remove("active"); });
+    document.querySelectorAll(".dock-link[data-route]").forEach(function (a) { a.classList.remove("active"); });
+    var indicatorEl = document.getElementById("dock-indicator");
 
     if (path === "/" || path === "") {
       document.querySelector('[data-route="home"]').classList.add("active");
@@ -621,10 +889,13 @@ __GAMES_JSON__
       var g = GAMES.find(function (x) { return x.slug === slug; });
       document.documentElement.style.setProperty("--accent", g ? g.accent : "#7c8cff");
       document.documentElement.style.setProperty("--accent2", g ? g.accent2 : "#3ee6c4");
+      if (indicatorEl) indicatorEl.classList.remove("ready");
       viewGame(slug);
     } else {
       viewHome();
     }
+
+    if (dockNav) dockNav.moveIndicator();
   }
 
   // Internal navigation (nav links, tiles, breadcrumbs, filter pills, ...) uses
@@ -657,6 +928,7 @@ __GAMES_JSON__
     }
   }, true);
 
+  var dockNav = initDockNav();
   window.addEventListener("hashchange", route);
   wireSearchWidget(document.getElementById("nav-search-input"), document.getElementById("nav-search-results"));
   route();
