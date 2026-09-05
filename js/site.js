@@ -1,5 +1,5 @@
 /* =========================================================
-   GameStoryHub — shared site logic
+   Digi-games — shared site logic
    Works off data/games.json (client-side only, no backend).
    Every page includes this file and sets:
      window.GC_ROOT = "./"   (pages at site root: index.html, browse.html)
@@ -320,7 +320,68 @@
   }
   GC.wireSearchWidget = wireSearchWidget;
 
-  // ---------- animated stat counters ----------
+  // ---------- data-backed hero stats (never hand-typed, so they can't go stale) ----------
+  function computeStats(games) {
+    const studios = new Set(games.map((g) => g.developer)).size;
+    const earliestYear = games.reduce((min, g) => Math.min(min, parseInt(g.releaseDate.slice(0, 4), 10)), 9999);
+    return { gamesCovered: games.length, studios, earliestYear };
+  }
+  GC.computeStats = computeStats;
+
+  // No signup mechanism exists yet, so this is a real "0" rather than a
+  // computed value -- update it by hand once a subscriber source exists.
+  GC.subscriberCount = 0;
+
+  // Generic (non-trademarked) platform-family glyphs: which families a
+  // visitor's own platform falls into actually matters; a raw "14 platforms"
+  // count does not, so this replaces that with a filtered icon strip instead.
+  const PLATFORM_FAMILIES = [
+    { key: "pc", label: "PC", test: (s) => s.includes("pc") || s.includes("mac"),
+      icon: '<rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 17v3"/>' },
+    { key: "playstation", label: "PlayStation", test: (s) => s.startsWith("ps") || s.includes("playstation"),
+      icon: '<path d="M6 9c-2 0-3.3 1.6-3.6 4-.3 2.4.5 4.4 2.5 4.4 1.3 0 1.8-1 2.5-2.2.6-1 1-1.3 2-1.3h5c1 0 1.4.3 2 1.3.7 1.2 1.2 2.2 2.5 2.2 2 0 2.8-2 2.5-4.4C21.3 10.6 20 9 18 9Z"/><circle cx="16" cy="8" r=".9" fill="currentColor" stroke="none"/><circle cx="18.3" cy="10" r=".9" fill="currentColor" stroke="none"/>' },
+    { key: "xbox", label: "Xbox", test: (s) => s.includes("xbox"),
+      icon: '<circle cx="12" cy="9.5" r="4"/><path d="M12 13.5v3M8.2 20h7.6"/>' },
+    { key: "nintendo", label: "Nintendo", test: (s) => s.includes("switch") || s.includes("wii"),
+      icon: '<rect x="4" y="6" width="16" height="12" rx="3"/><circle cx="8" cy="12" r="1.3"/><circle cx="16" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="14" r="1" fill="currentColor" stroke="none"/>' },
+    { key: "mobile", label: "Mobile", test: (s) => s.includes("mobile") || s.includes("ios") || s.includes("android"),
+      icon: '<rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/>' },
+  ];
+  function platformCoverage(games) {
+    const all = new Set();
+    games.forEach((g) => g.platforms.forEach((p) => all.add(p.toLowerCase())));
+    return PLATFORM_FAMILIES.filter((f) => Array.from(all).some((p) => f.test(p)));
+  }
+  GC.platformCoverage = platformCoverage;
+
+  // ---------- neon-sign dust sparkles for the hero brand lockup ----------
+  // Scatters a handful of small twinkling motes across `container` (the
+  // .hero-brand wrapper), inspired by the drifting dust around a lit neon
+  // sign. Skipped outright under prefers-reduced-motion rather than paused.
+  function spawnSparkles(container, count) {
+    if (!container) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    count = count || 9;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement("span");
+      s.className = "brand-sparkle";
+      s.setAttribute("aria-hidden", "true");
+      s.style.left = (Math.random() * 96 + 2).toFixed(1) + "%";
+      s.style.top = (Math.random() * 84 + 8).toFixed(1) + "%";
+      s.style.animationDelay = (Math.random() * 2.2).toFixed(2) + "s";
+      s.style.animationDuration = (1.8 + Math.random() * 1.6).toFixed(2) + "s";
+      frag.appendChild(s);
+    }
+    container.appendChild(frag);
+  }
+  GC.spawnSparkles = spawnSparkles;
+
+  // ---------- animated stat counters (+ optional donut-ring sweep) ----------
+  // If a [data-count] element sits inside a ".stat-ring", its sibling
+  // ".stat-ring-progress" circle sweeps in lockstep with the count-up --
+  // full when the target is > 0, left EMPTY when the target is 0 (e.g. an
+  // honest "0 subscribers" placeholder) rather than faking a filled ring.
   function animateCounters(scope) {
     const els = (scope || document).querySelectorAll("[data-count]");
     const io = new IntersectionObserver((entries) => {
@@ -331,12 +392,23 @@
         const target = parseFloat(el.dataset.count);
         const decimals = (el.dataset.count.split(".")[1] || "").length;
         const suffix = el.dataset.suffix || "";
+        const ring = el.closest(".stat-ring");
+        const progress = ring ? ring.querySelector(".stat-ring-progress") : null;
+        let circumference = 0;
+        if (progress) {
+          const r = parseFloat(progress.getAttribute("r")) || 27;
+          circumference = 2 * Math.PI * r;
+          progress.style.strokeDasharray = String(circumference);
+          progress.style.strokeDashoffset = String(circumference);
+        }
+        const ringFraction = target > 0 ? 1 : 0;
         const dur = 1100;
         const start = performance.now();
         function tick(now) {
           const p = Math.min(1, (now - start) / dur);
           const eased = 1 - Math.pow(1 - p, 3);
           el.textContent = (target * eased).toFixed(decimals) + suffix;
+          if (progress) progress.style.strokeDashoffset = String(circumference * (1 - eased * ringFraction));
           if (p < 1) requestAnimationFrame(tick);
         }
         requestAnimationFrame(tick);
@@ -394,12 +466,196 @@
   }
   GC.initParticles = initParticles;
 
-  // ---------- mobile nav toggle ----------
-  document.addEventListener("DOMContentLoaded", () => {
-    const toggle = document.querySelector("[data-nav-toggle]");
-    const links = document.querySelector(".nav-links");
-    if (toggle && links) {
-      toggle.addEventListener("click", () => links.classList.toggle("open"));
+  // ---------- home hero: coverflow-style featured carousel ----------
+  // Renders one absolutely-positioned card per game inside `els.stage`, then
+  // animates each card's transform/opacity by its signed distance from the
+  // active index (0 = centered/upright, ±1 = tilted side cards, further =
+  // hidden just past the edge, ready to slide in). Reuses posterArtHTML so
+  // carousel cards look like the same "poster" system as every grid tile.
+  function buildCarousel(games, els) {
+    if (!els || !els.stage || !games || games.length === 0) return;
+    const stage = els.stage, titleEl = els.title, dotsEl = els.dots;
+    const root = els.root || stage;
+    const N = games.length;
+    let current = 0;
+    let timer = null;
+    let titleSwapTimer = null;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!reduceMotion) root.classList.add("motion-ok");
+
+    const cards = games.map((g, i) => {
+      const el = document.createElement("div");
+      el.className = "carousel-card card-enter";
+      el.style.setProperty("--tile-accent", g.accent);
+      el.style.setProperty("--tile-accent2", g.accent2);
+      el.innerHTML = `<a class="carousel-card-media" href="${gamePath(g.slug)}" aria-label="Open ${escapeHtml(g.title)}" tabindex="-1">
+        <div class="tile-art${g.poster ? " has-photo" : ""}">${posterArtHTML(g)}</div>
+      </a>`;
+      el.addEventListener("click", (e) => {
+        if (i !== current) { e.preventDefault(); goTo(i); }
+      });
+      stage.appendChild(el);
+      return el;
+    });
+
+    function shortestOffset(i, cur) {
+      let d = i - cur;
+      if (d > N / 2) d -= N;
+      if (d < -N / 2) d += N;
+      return d;
     }
-  });
+
+    function positionCard(el, i) {
+      const off = shortestOffset(i, current);
+      const abs = Math.abs(off);
+      const dir = off === 0 ? 0 : (off > 0 ? 1 : -1);
+      el.style.zIndex = String(10 - abs);
+      el.querySelector(".carousel-card-media").tabIndex = abs === 0 ? 0 : -1;
+      el.setAttribute("aria-hidden", abs === 0 ? "false" : "true");
+      el.classList.toggle("is-active", abs === 0);
+      if (abs === 0) {
+        el.style.transform = "translateX(-50%) rotateY(0deg) scale(1)";
+        el.style.opacity = "1";
+      } else if (abs === 1) {
+        el.style.transform = `translateX(calc(-50% + ${dir * 68}%)) rotateY(${dir * -32}deg) scale(0.8)`;
+        el.style.opacity = "0.55";
+      } else {
+        el.style.transform = `translateX(calc(-50% + ${dir * 125}%)) rotateY(${dir * -40}deg) scale(0.7)`;
+        el.style.opacity = "0";
+      }
+    }
+
+    function render(animateTitle) {
+      cards.forEach(positionCard);
+      if (titleEl) {
+        if (animateTitle && !reduceMotion) {
+          clearTimeout(titleSwapTimer);
+          titleEl.classList.add("swap");
+          titleSwapTimer = setTimeout(() => {
+            titleEl.textContent = games[current].title;
+            titleEl.classList.remove("swap");
+          }, 200);
+        } else {
+          titleEl.textContent = games[current].title;
+        }
+      }
+      if (dotsEl) {
+        Array.from(dotsEl.children).forEach((d, i) => {
+          d.classList.toggle("active", i === current);
+          d.setAttribute("aria-current", i === current ? "true" : "false");
+        });
+      }
+    }
+
+    function goTo(i) {
+      if (((i % N) + N) % N === current) return;
+      current = ((i % N) + N) % N;
+      render(true);
+      resetAutoplay();
+    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    if (dotsEl) {
+      dotsEl.innerHTML = games.map((g) => `<button type="button" class="carousel-dot" aria-label="Show ${escapeHtml(g.title)}"></button>`).join("");
+      Array.from(dotsEl.children).forEach((d, i) => d.addEventListener("click", () => goTo(i)));
+    }
+    if (els.prevBtn) els.prevBtn.addEventListener("click", prev);
+    if (els.nextBtn) els.nextBtn.addEventListener("click", next);
+
+    stage.setAttribute("tabindex", "0");
+    stage.setAttribute("role", "region");
+    stage.setAttribute("aria-label", "Featured games carousel");
+    stage.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); prev(); }
+      if (e.key === "ArrowRight") { e.preventDefault(); next(); }
+    });
+
+    function resetAutoplay() {
+      clearInterval(timer);
+      if (reduceMotion) return;
+      timer = setInterval(next, 4800);
+    }
+    stage.addEventListener("pointerenter", () => clearInterval(timer));
+    stage.addEventListener("pointerleave", resetAutoplay);
+    stage.addEventListener("focusin", () => clearInterval(timer));
+    stage.addEventListener("focusout", resetAutoplay);
+
+    // initial layout while cards are still in their .card-enter (off/faded) state...
+    render(false);
+    // ...then release the entrance state a frame later so the transition
+    // animates from "flown in from below" into its resting coverflow spot,
+    // staggered slightly per card for a nicer cascade.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        cards.forEach((el, i) => {
+          if (!reduceMotion) {
+            el.style.transitionDelay = Math.min(Math.abs(shortestOffset(i, current)), 4) * 60 + "ms";
+          }
+          el.classList.remove("card-enter");
+        });
+        setTimeout(() => { cards.forEach((el) => { el.style.transitionDelay = ""; }); }, 900);
+      });
+    });
+    resetAutoplay();
+  }
+  GC.buildCarousel = buildCarousel;
+
+  // ---------- floating dock nav: sliding indicator + search overlay ----------
+  function debounce(fn, wait) {
+    let t = null;
+    return function () {
+      clearTimeout(t);
+      const args = arguments;
+      t = setTimeout(() => fn.apply(null, args), wait);
+    };
+  }
+
+  function initDockNav(nav) {
+    nav = nav || document.querySelector(".dock-nav");
+    if (!nav) return;
+    const indicator = nav.querySelector(".dock-indicator");
+
+    function moveIndicator() {
+      const active = nav.querySelector(".dock-link.active");
+      if (!active || !indicator) return;
+      indicator.style.left = active.offsetLeft + "px";
+      indicator.style.top = active.offsetTop + "px";
+      indicator.style.width = active.offsetWidth + "px";
+      indicator.style.height = active.offsetHeight + "px";
+      indicator.classList.add("ready");
+    }
+    moveIndicator();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(moveIndicator).catch(() => {});
+    }
+    window.addEventListener("resize", debounce(moveIndicator, 120));
+    window.addEventListener("orientationchange", () => setTimeout(moveIndicator, 60));
+
+    const overlay = document.getElementById("search-overlay");
+    const overlayBackdrop = document.getElementById("search-overlay-backdrop");
+    const overlayClose = document.getElementById("search-overlay-close");
+    const overlayInput = document.getElementById("nav-search-input");
+    const searchToggle = document.getElementById("dock-search-toggle");
+
+    function openSearch() {
+      if (!overlay) return;
+      overlay.classList.add("open");
+      setTimeout(() => { if (overlayInput) overlayInput.focus(); }, 60);
+    }
+    function closeSearch() {
+      if (!overlay || !overlay.classList.contains("open")) return;
+      overlay.classList.remove("open");
+      if (searchToggle) searchToggle.focus();
+    }
+    if (searchToggle) searchToggle.addEventListener("click", openSearch);
+    if (overlayBackdrop) overlayBackdrop.addEventListener("click", closeSearch);
+    if (overlayClose) overlayClose.addEventListener("click", closeSearch);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && overlay && overlay.classList.contains("open")) closeSearch();
+    });
+
+    return { moveIndicator, openSearch, closeSearch };
+  }
+  GC.initDockNav = initDockNav;
 })();
