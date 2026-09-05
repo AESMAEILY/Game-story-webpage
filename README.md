@@ -1,4 +1,4 @@
-# GameStoryHub
+# Digi-games
 
 A static walkthrough &amp; story hub — 50 games, client-side search/filter, hover-preview trending grid, and per-game pages with an embedded top YouTube walkthrough plus a hand-written (not machine-translated) story summary. No backend, no database — everything reads from one JSON file.
 
